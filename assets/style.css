@@ -1,0 +1,16 @@
+/* Overrides */
+.card {
+    width: 372px;
+    float: left;
+    margin: 10px;
+}
+.card-image {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+.card-image img {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+}
