@@ -7,6 +7,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -16,12 +17,36 @@
       <div class="nav-wrapper">
         <a href="#main" class="brand-logo">Recipes</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="recipe.html">Recipes</a></li>
-        <li><a href="dotd.html">Dish of the Day</a></li>
+        <li><a href="recipe.html" id = "#recipe">Recipes</a></li>
+        <li><a href="dtod.html" id="dtod">Dish of the Day</a></li>
         </ul>
       </div>
     </nav>
-    
+
+    <!-- Dropdown Trigger -->
+  <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Filters</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#recipe"><i class="material-icons">spa</i>Vegetarian</a></li>
+    <li><a href="#recipe"><i class="material-icons">restaurant_menu</i>Meat</a></li>
+    <!--<li class="divider" tabindex="-1"></li>-->
+    <li><a href="#recipe"><i class="material-icons">grain</i>Calories</a></li>
+    <li><a href="#dtod"><i class="material-icons">local_drink</i>Drinks</a></li>
+  </ul>
+
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        coverTrigger = true;
+        closeOnClick=true;
+        var instances = M.Dropdown.init(elems, coverTrigger);
+        instances = M.Dropdown.init(elems, closeOnClick);
+        alignment = 'right';
+        instances = M.Dropdown.init(elems, alignment);
+      });
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./assets/script.js"></script>

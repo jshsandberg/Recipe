@@ -1,4 +1,3 @@
-
 $("#searchBtn").on("click", function(event) {
 // WHATEVER THE SEARCH INPUT ID IS
 let str = $(`#searchItem`).val();
