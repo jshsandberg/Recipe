@@ -35,7 +35,7 @@ $("#meat").on("click", function(event) {
         for(let i = 0; i < 10; i++) {
             let recipeURL = (response.hits[i].recipe.url);
             console.log(recipeURL)
-            //NEED TO APPEND OR TEXT TO A CARD
+            //NEED TO APPEND OR TEXT TO A CARD hello
             let recipeImg = (response.hits[i].recipe.image);
             console.log(recipeImg);
             //NEED TO APPEND OR TEXT TO A CARD
