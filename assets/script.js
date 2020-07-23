@@ -1,5 +1,21 @@
 $(document).ready(function(){
-    
+    //All materialze functions below
+    // Parallax Code
+    $(".parallax").parallax();
+    //Dropdown menu 
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        coverTrigger = true;
+        closeOnClick=true;
+        var instances = M.Dropdown.init(elems, coverTrigger);
+        instances = M.Dropdown.init(elems, closeOnClick);
+        alignment = 'right';
+        instances = M.Dropdown.init(elems, alignment);
+    });
+
+    //End materilize functions
+
+
     cards();
 
 $("#search-button").on("click", function(event) {
@@ -102,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
     instances = M.Dropdown.init(elems, alignment);
   });
  
-
+//
 function cards() {
         let randomItem = ["steak"]; 
         let homeURL = "https://api.edamam.com/search?q=" + randomItem + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
@@ -175,5 +191,8 @@ function cards() {
                 //console.log(response.count);
                 console.log(response);
             });
+    
     }
+
+//End of ready function
 })
