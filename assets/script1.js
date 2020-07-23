@@ -1,24 +1,24 @@
 $("#veggie").on("click", function(event) {
 
     //let str = $(`#searchItem`).val();
-    let queryURL_2 = "https://api.edamam.com/search?q=chicken&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=3&calories=591-722&health=alcohol-free"
+    let queryURL_2 = "https://api.edamam.com/search?q=Vegetarian&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free"
     $.ajax({
         url: queryURL_2,
         method: "GET"
     }).then(function(response) {
-        //for(let i = 0; i < 10; i++) {
-            // let recipeURL = (response.hits[i].recipe.url);
-            // console.log(recipeURL)
-            // //NEED TO APPEND OR TEXT TO A CARD
-            // let recipeImg = (response.hits[i].recipe.image);
-            // console.log(recipeImg);
-            // //NEED TO APPEND OR TEXT TO A CARD
-            // let recipeLabel = (response.hits[i].recipe.label);
-            // console.log(recipeLabel);
+        for(let i = 0; i < 10; i++) {
+            let recipeURL = (response.hits[i].recipe.url);
+            console.log(recipeURL)
             //NEED TO APPEND OR TEXT TO A CARD
-            console.log(response);
-            console.log(response.count);
-        //}
+            let recipeImg = (response.hits[i].recipe.image);
+            console.log(recipeImg);
+            //NEED TO APPEND OR TEXT TO A CARD
+            let recipeLabel = (response.hits[i].recipe.label);
+            console.log(recipeLabel);
+            //NEED TO APPEND OR TEXT TO A CARD
+            // console.log(response);
+            // console.log(response.count);
+        }
     });
     
     
@@ -26,8 +26,8 @@ $("#veggie").on("click", function(event) {
 
 $("#meat").on("click", function(event) {
 
-    //let str = $(`#searchItem`).val();
-    let queryURL_2 = "https://api.edamam.com/search?q=meat&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=3&calories=591-722&health=alcohol-free"
+    let str = $(`#searchItem`).val();
+    let queryURL_2 = "https://api.edamam.com/search?q=meat&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free"
     $.ajax({
         url: queryURL_2,
         method: "GET"
@@ -52,7 +52,7 @@ $("#meat").on("click", function(event) {
 $("#calories").on("click", function(event) {
 
     let str = $(`#searchItem`).val();
-    let queryURL_2 = "https://api.edamam.com/search?q=calories&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=3&calories=591-722&health=alcohol-free"
+    let queryURL_2 = "https://api.edamam.com/search?q=snack&calories=100-300&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free"
     $.ajax({
         url: queryURL_2,
         method: "GET"
