@@ -76,8 +76,7 @@ $("#calories").on("click", function(event) {
 
 $("#drinks").on("click", function(event) {
 
-    let drink = $(`#searchDrink`).val();
-    let queryURL_1 ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=drinks" + "";
+    let queryURL_1 ="https://www.thecocktaildb.com/api/json/v1/1/random.php";
      
     
     $.ajax({
