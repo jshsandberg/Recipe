@@ -1,15 +1,14 @@
-$("#searchBtn").on("click", function(event) {
+$("#search-button").on("click", function(event) {
 // WHATEVER THE SEARCH INPUT ID IS
-let str = $(`#searchItem`).val();
+let str = $(`#search`).val();
 
 
-let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=3&calories=591-722&health=alcohol-free"
- 
+let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        for(let i = 0; i < 10; i++) {
+        for(let i = 0; i < 99; i++) {
         let recipeURL = (response.hits[i].recipe.url);
         console.log(recipeURL)
         //NEED TO APPEND OR TEXT TO A CARD
@@ -19,7 +18,8 @@ let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=83c5c1cd&app_
         let recipeLabel = (response.hits[i].recipe.label);
         console.log(recipeLabel);
         //NEED TO APPEND OR TEXT TO A CARD
-        //console.log(response);
+        console.log(response.count);
+        console.log(response);
         }
     });
 });
@@ -58,3 +58,36 @@ $.ajax({
 
 
 });
+
+let randomItem = ["chicken", "beef", "pasta", "cake", "tofu", "steak", "potatos", "mushrooms", "jello", "seafood"];
+function randomStr(){
+    return randomItem[Math.floor(Math.random() * randomItem.length)];
+    }
+let answer = randomStr();
+
+// Need to make a Feeling Lucky Button and then put it in the call
+$("#search-button").on("click", function(event) {
+
+    let feelinLucky = "https://api.edamam.com/search?q=" + answer + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
+    let random = Math.floor((Math.random() * 10) + 1);
+        
+    $.ajax({
+        url: feelinLucky,
+        method: "GET"
+    }).then(function(response) {
+        //for(let i = 0; i < 10; i++) {
+        let recipeURL = (response.hits[random].recipe.url);
+        console.log(recipeURL)
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[random].recipe.image);
+        console.log(recipeImg);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeLabel = (response.hits[random].recipe.label);
+        console.log(recipeLabel);
+        //NEED TO APPEND OR TEXT TO A CARD
+        console.log(response);
+
+    });
+});
+    
+    
