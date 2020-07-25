@@ -37,3 +37,25 @@
 #result-content h5{
   margin-top: 0px;
 }
+#side-panel {
+  border-radius: 5px;
+  border: 1px solid #e2e2e2;
+  margin: 25px 0;
+  min-height: 500px;
+}
+
+#results-panel {
+  border-radius: 5px;
+  margin: 25px 0;
+  min-height: 500px;
+}
+#result {
+  margin: 20px 0;
+}
+#result img {
+  object-fit: cover;
+  width: 100%;
+}
+#result-content h5{
+  margin-top: 0px;
+}
