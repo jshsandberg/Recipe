@@ -1,40 +1,3 @@
-function match(str1){
-    var numbers={
-      containsNumber : /\d+/
-    }
-    var expMatch = {};
-    expMatch.containsNumber = numbers.containsNumber.test(str1);
-    return expMatch.containsNumber;
-}
-
-$("#search-button").on("click", function(event) {
-// WHATEVER THE SEARCH INPUT ID IS
-    let str = $(`#search`).val();
-
-  
-  //console.log("The match:"+ JSON.stringify(match(str)));
-  //console.log(JSON.stringify(match(str)));
-  var x= match(str);
-  console.log(x);
-  console.log("type of the return: " + typeof(match(str)));
-  
-  if(x===false){
-      console.log("THERE IS NO NUMBer");
-      $("#search-button").removeClass("modal-trigger");
-      console.log("this is the if statement"+x);
-    
-  }
-  else{
-    console.log("THERE IS A NUMBER");
-    console.log("what gives x?"+x);
-    $("#search-button").addClass("modal-trigger");
-    $('.modal').modal();
-  }
-  
-
-console.log(typeof str);
-
-
 $(document).ready(function(){
     //All materialze functions below
     // Parallax Code
@@ -49,7 +12,42 @@ $(document).ready(function(){
         alignment = 'right';
         instances = M.Dropdown.init(elems, alignment);
     });
-
+    // Modal Function
+    function match(str1){
+        let numbers={
+          containsNumber : /\d+/
+        }
+        let expMatch = {};
+        expMatch.containsNumber = numbers.containsNumber.test(str1);
+        return expMatch.containsNumber;
+    }
+    
+    $("#search-button").on("click", function(event) {
+    // WHATEVER THE SEARCH INPUT ID IS
+        let str = $(`#search`).val();
+    
+      
+      //console.log("The match:"+ JSON.stringify(match(str)));
+      //console.log(JSON.stringify(match(str)));
+      let x= match(str);
+      console.log(x);
+      console.log("type of the return: " + typeof(match(str)));
+      
+      if(x===false){
+          console.log("THERE IS NO NUMBer");
+          $("#search-button").removeClass("modal-trigger");
+          console.log("this is the if statement"+x);
+        
+      }
+      else{
+        console.log("THERE IS A NUMBER");
+        console.log("what gives x?"+x);
+        $("#search-button").addClass("modal-trigger");
+        $('.modal').modal();
+      }
+      
+    
+    console.log(typeof str);
     //End materilize functions
 
 
@@ -408,4 +406,4 @@ function cards() {
 
         
 //End of ready function
-            
+})
