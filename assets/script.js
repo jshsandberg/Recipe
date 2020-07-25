@@ -1,7 +1,27 @@
+function match(str1){
+    var numbers={
+      containsNumber : /\d+/
+    }
+    var expMatch = {};
+    expMatch.containsNumber = numbers.containsNumber.test(str1);
+    return expMatch.containsNumber;
+}
+
 $("#search-button").on("click", function(event) {
 // WHATEVER THE SEARCH INPUT ID IS
 let str = $(`#search`).val();
 
+  
+  //console.log("The match:"+ JSON.stringify(match(str)));
+  //console.log(JSON.stringify(match(str)));
+  var x= JSON.stringify(match(str));
+  console.log(x);
+  if(x){
+    $(document).ready(function(){
+        $('.modal').modal();
+    });
+  }
+  
 
 console.log(typeof str);
 
