@@ -1,11 +1,9 @@
 $("#search-button").on("click", function(event) {
 // WHATEVER THE SEARCH INPUT ID IS
 let str = $(`#search`).val();
-if(typeof(str) !== "string"){
-    $(document).ready(function(){
-        $('.modal').modal();
-    });
-}
+
+
+console.log(typeof str);
 
 
 let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
