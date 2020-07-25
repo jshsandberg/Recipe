@@ -7,25 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
     <!-- favicon links -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <style>
-        .carousel-item .active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(600px) translateY(0px) translateX(0px) translateZ(0px);
-        }
-        .carousel-item {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0px) translateY(0px) translateX(0px) translateZ(0px) !important;
-        }
-    </style>
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/owl.theme.default.min.css">
   </head>
   <body>
     <nav>
@@ -33,13 +24,10 @@
         <a href="#" class="brand-logo">Recipes</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="recipe.html" id = "#recipe">Recipes</a></li>
-        <li><a href="drinks.html" id="#drinks">Drinks</a></li>
+        <li><a href="drink-results.html" id="#drinks">Drinks</a></li>
         <li><a href="dtod.html" id="dtod">Dish of the Day</a></li>
-        <li><a href="drinks.html" id="drinks">Drinks</a> </li>
         <li>
-
           <a class='dropdown-trigger btn indigo lighten-2' href='#' data-target='dropdown1'>Filters</a>
-
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
             <li><a href="#recipe" id="veggie"><i class="material-icons">spa</i>Vegetarian</a></li>
@@ -55,141 +43,342 @@
 
     <!-- Dropdown Trigger -->
   
-
-  <!-- JUMBOTRON code snippet -->
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <div  class="row center">
-          <h1 id="h1">Recipes to Cook at Home</h1>
-        </div>
-        <div class="row center blue-text text-darken-4">
-          <nav>
-            <div class="nav-wrapper">
-              <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
+    <!-- JUMBOTRON code snippet -->
+    <div id="index-banner" class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br><br>
+          <div  class="row center">
+            <h1 id="h1">Recipes to Cook at Home</h1>
+          </div>
+          <div class="row center blue-text text-darken-4">
+            <nav>
+              <div class="nav-wrapper">
+                <div class="input-field">
+                  <input id="search" type="search" required>
+                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
               </div>
-            </div>
-          </nav>     
-          <button  id="search-button" class="btn-large waves-effect waves-light lighten-1">Get Cookin'</button>
-
+            </nav>     
+            <button  id="search-button" data-target="modal1" class="btn-large waves-effect waves-light lighten-1 ">Get Cookin'</button>
+            <!-- Modal Structure -->
+         <div id="modal1" class="modal">
+             <div class="modal-content">
+             <h4>Invalid Input</h4>
+             <p>Input should be a type of food!</p>
+             </div>
+             <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+             </div>
+         </div>
+         </div>
+         <br><br>
         </div>
-        <br><br>
+      </div>
+      <div class="parallax"><img src="assets/images/parallax-veggies.jpg" alt="veggies" class="responsive-img"></div>
+    </div>
 
+    <div class="container">
+      <div class="row">
+        <!-- Start of Owl Container -->
+        <div class="owl-carousel owl-theme">
+          
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="r-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="r-title">Card Title</span>
+                    <p id="r-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="t-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="t-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="t-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="t-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>    
+          </div>
+
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="t-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="t-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="t-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="t-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="t-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="t-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="t-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="t-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+              </div>
+          </div>
+
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="t-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="t-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="card">
+                <div class="card-image">
+                    <img id="t-img" src="">
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title" id="t-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+            </div>
+          </div>
+        <!-- End of Owl Container-->
+        </div>
+
+        <!-- Cards Start -->
+        <div class="card">
+            <div class="card-image">
+                <img id="r-img" src="">
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title" id="r-title">Card Title</span>
+                <p id="r-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img id="t-img" src="">
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title" id="t-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img id="s-img" src="">
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title" id="s-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+              <img id="u-img" src="">
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+              <span class="card-title" id="u-title">Card Title</span>
+              <p id="u-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+          </div>
+      </div>
+        <!-- Cards End -->
+      </div>
+      <!-- Drink Cards Start -->
+      <div class="row">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="drinkimg1" class="activator" src="">
+          </div>
+          <div class="card-content">
+            <span id="drinktitle1" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="drinktitle1.5" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p><span id="drinkIngD"></span></p>
+            <ul id="drinkIng1"></ul>
+            <ul id="drinkIng2"></ul>
+            <ul id="drinkIng3"></ul>
+            <ul id="drinkIng4"></ul>
+            <ul id="drinkIng5"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="whiskeyimg1" class="activator" src="">
+          </div>
+          <div class="card-content">
+            <span id="whiskeytitle1" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="whiskeytitle1.5" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p><span id="whiskeyIngD"></span></p>
+            <ul id="whiskeyIng1"></ul>
+            <ul id="whiskeyIng2"></ul>
+            <ul id="whiskeyIng3"></ul>
+            <ul id="whiskeyIng4"></ul>
+            <ul id="whiskeyIng5"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="ginimg1" class="activator" src="">
+          </div>
+          <div class="card-content">
+            <span id="gintitle1" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="gintitle1.5" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p><span id="ginIngD"></span></p>
+            <ul id="ginIng1"></ul>
+            <ul id="ginIng2"></ul>
+            <ul id="ginIng3"></ul>
+            <ul id="ginIng4"></ul>
+            <ul id="ginIng5"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="vodkaimg1" class="activator" src="">
+          </div>
+          <div class="card-content">
+            <span id="vodkatitle1" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="vodkatitle1.5" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p><span id="vodkaIngD"></span></p>
+            <ul id="vodkaIng1"></ul>
+            <ul id="vodkaIng2"></ul>
+            <ul id="vodkaIng3"></ul>
+            <ul id="vodkaIng4"></ul>
+            <ul id="vodkaIng5"></ul>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="parallax"><img src="assets/images/parallax-veggies.jpg" alt="veggies" class="responsive-img"></div>
-  </div>
-
-  <div class="container">
-
-
-    <div class="row">
-        <!-- Carousel Start -->
-
-        <div class="carousel">
-
-            <!-- Cards Start -->
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title" id="r-title">Card Title</span>
-                        <p id="r-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2020/03/10/0/FNK_BEST-CHICKEN-AND-RICE-H_s4x3.jpg.rend.hgtvcom.476.357.suffix/1583851621211.jpeg">
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/4/4/0/LS-Library_Zucchini-Tart_s4x3.jpg.rend.hgtvcom.406.305.suffix/1522778804326.jpeg">
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Cards End -->
+    <footer class="page-footer">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Recipe Project</h5>
+          <p class="grey-text text-lighten-4">Are you stuck working at home with bags of postmates on your desk? Did you gain 20 pounds? Wanna loose weight? Welcome to Remote Workers Recipe Lookup! Save money and eat healthy with our database of recipes. </p>
         </div>
-            <!-- Carousel End -->
-    </div>
-
-
-    <!-- Drink Cards Start -->
-    <div class="row">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="https://www.thecocktaildb.com/images/media/drink/1q7coh1504736227.jpg">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Created By</h5>
+            <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Spencer Smith</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Crystal Han</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Eric Folenta</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Josh Sandberg</a></li>
+            </ul>
         </div>
-
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="https://www.thecocktaildb.com/images/media/drink/1q7coh1504736227.jpg">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2020 Recipe Project 
+        <a class="grey-text text-lighten-4 right" href="#!">Home</a>
         </div>
-
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="https://www.thecocktaildb.com/images/media/drink/1q7coh1504736227.jpg">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-        </div>
-    </div>
-
+      </div>
+    </footer>
     <!-- JavaScript -->
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="assets/owlcarousel/owl.carousel.min.js"></script>
     <script>
-      // Parallax Code
-      $(".parallax").parallax();
-    //Dropdown menu 
-    document.addEventListener('DOMContentLoaded', function() {
+      //  initialize owl carousel
+      $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+          loop:true,
+          margin:10,
+          nav:true,
+          responsive: {
+              0:{
+                  items:1
+              },
+              600:{
+                  items:3
+              },
+              1000:{
+                  items:3
+              }
+          }
+        })
+      });
+
+      //Dropdown menu 
+      document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.dropdown-trigger');
         coverTrigger = true;
         closeOnClick=true;
@@ -198,22 +387,8 @@
         alignment = 'right';
         instances = M.Dropdown.init(elems, alignment);
       });
-      document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, options);
-  });
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.carousel').carousel();
-  });
     </script>
-
-    <!-- Optional JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
     <script src="./assets/script.js"></script>
     <script src="./assets/script1.js"></script>
- </body>
+  </body>
 </html>
