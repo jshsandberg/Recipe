@@ -16,14 +16,14 @@
     <link rel="manifest" href="assets/favicon/site.webmanifest">
     
   </head>
-  <body id="home">
+  <body>
     <nav>
       <div class="nav-wrapper cyan">
         <a href="#" class="brand-logo">Recipes</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="recipe.html" id = "#recipe">Recipes</a></li>
         <li><a href="drink-results.html" id="#drinks">Drinks</a></li>
-        <li><a href="dtod.html" id="dtod">Dish of the Day</a></li>
+        <li><a href="dtod.html" id="dtod">Random Dish</a></li>
         <li>
           <a class='dropdown-trigger btn cyan darken-2' href='#' data-target='dropdown1'>Filters</a>
           <!-- Dropdown Structure -->
@@ -74,10 +74,13 @@
          <br><br>
         </div>
       </div>
-      <div class="parallax"><img src="assets/images/parallax-veggies.jpg" alt="veggies" class="responsive-img"></div>
+      <div class="parallax"><img src="assets/images/bread-parallax-image.jpg" alt="veggies" class="responsive-img"></div>
     </div>
 
-    <div class="container">
+
+<!-- THIS IS THE START OF THE HOME PAGE -->
+
+    <div id="home-page" class="container">
       <div class="row">
         <!-- Cards Start -->
         <div class="card">
@@ -204,6 +207,47 @@
         </div>
       </div>
     </div>
+<!-- THIS IS THE END OF THE HOME PAGE -->
+
+<!-- THIS IS THE START OF THE SEARCH RESULT PAGE -->
+<div id="result-page" class="container">
+  <div class="row">
+      <div class="col s3" id=side-panel>
+        <h5>Options</h5>
+        <hr>
+      </div>
+      <div class="col s9" id="results-panel">
+        <h5>Search Results for</h5>
+        <hr>
+        <div id="result">
+
+          <div id="result-image" class="col s3">
+            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=http%3A%2F%2Fcdn-image.myrecipes.com%2Fsites%2Fdefault%2Ffiles%2Fimage%2Frecipes%2Ffw%2F13%2Fpasta-allamatriciana-x.jpg&w=500&h=335&c=sc&poi=face&q=85" alt="pasta">
+          </div>
+
+          <div id="result-content" class="col s9">
+            <h5 id="recipe-name">Pasta all'Amatriciana</h5>
+            <p id="recipe-desc">
+              The chef at Osteria di San Cesario, Anna Dente, is known as the Queen of Matriciana. She not only makes the pasta and sauce herself, she draws on her family's four decades in the butchering business to make her own guanciale (cured hog jowl)–though the sauce is also fantastic made with pancetta.
+            </p>
+          </div>
+  
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+      
+  </div>
+  </div>
+<!-- THIS IS THE END OF THE SEARCH RESULT PAGE -->
+
+<!-- THIS IS THE START OF THE RECIPE PAGE -->
+  <div id="recipe-page" class="container">
+
+  </div>
+<!-- THIS IS THE END OF THE RECIPE PAGE -->
+
     <footer class="page-footer cyan">
       <div class="row">
         <div class="col l6 s12">
