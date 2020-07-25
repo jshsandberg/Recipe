@@ -1,40 +1,3 @@
-function match(str1){
-    var numbers={
-      containsNumber : /\d+/
-    }
-    var expMatch = {};
-    expMatch.containsNumber = numbers.containsNumber.test(str1);
-    return expMatch.containsNumber;
-}
-
-$("#search-button").on("click", function(event) {
-// WHATEVER THE SEARCH INPUT ID IS
-    let str = $(`#search`).val();
-
-  
-  //console.log("The match:"+ JSON.stringify(match(str)));
-  //console.log(JSON.stringify(match(str)));
-  var x= match(str);
-  console.log(x);
-  console.log("type of the return: " + typeof(match(str)));
-  
-  if(x===false){
-      console.log("THERE IS NO NUMBer");
-      $("#search-button").removeClass("modal-trigger");
-      console.log("this is the if statement"+x);
-    
-  }
-  else{
-    console.log("THERE IS A NUMBER");
-    console.log("what gives x?"+x);
-    $("#search-button").addClass("modal-trigger");
-    $('.modal').modal();
-  }
-  
-
-console.log(typeof str);
-
-
 $(document).ready(function(){
     cards();
     //All materialze functions below
@@ -51,108 +14,149 @@ $(document).ready(function(){
         instances = M.Dropdown.init(elems, alignment);
     });
 
+    // function match(str1){
+    //     var numbers={
+    //     containsNumber : /\d+/
+    //     }
+    //     var expMatch = {};
+    //     expMatch.containsNumber = numbers.containsNumber.test(str1);
+    //     return expMatch.containsNumber;
+    // }
+
+    // $("#search-button").on("click", function(event) {
+    // // WHATEVER THE SEARCH INPUT ID IS
+    //     let str = $(`#search`).val();
+
+    
+    //     //console.log("The match:"+ JSON.stringify(match(str)));
+    //     //console.log(JSON.stringify(match(str)));
+    //     var x= match(str);
+    //     console.log(x);
+    //     console.log("type of the return: " + typeof(match(str)));
+        
+    //     if(x===false){
+    //         console.log("THERE IS NO NUMBer");
+    //         $("#search-button").removeClass("modal-trigger");
+    //         console.log("this is the if statement"+x);
+            
+    //     }
+    //     else{
+    //         console.log("THERE IS A NUMBER");
+    //         console.log("what gives x?"+x);
+    //         $("#search-button").addClass("modal-trigger");
+    //         $('.modal').modal();
+    //     }
+    // });
+    
+
+//console.log(typeof str);
+
+
+
+
     //End materilize functions
 
-$("#search-button").on("click", function(event) {
-// WHATEVER THE SEARCH INPUT ID IS
-let str = $(`#search`).val();
-let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=83c5c1cd&app_key=" + key;
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {
-        for(let i = 0; i < 99; i++) {
-        let recipeURL = (response.hits[i].recipe.url);
-        //console.log(recipeURL)
-        //NEED TO APPEND OR TEXT TO A CARD
-        let recipeImg = (response.hits[i].recipe.image);
-        console.log(recipeImg);
-        //NEED TO APPEND OR TEXT TO A CARD
-        let recipeLabel = (response.hits[i].recipe.label);
-        //console.log(recipeLabel);
-        //NEED TO APPEND OR TEXT TO A CARD
-        //console.log(response.count);
-        //console.log(response);
+//     $("#search-button").on("click", function(event) {
+//     // WHATEVER THE SEARCH INPUT ID IS
+//     let str = $(`#search`).val();
+//     let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=83c5c1cd&app_key=" + key;
+//         $.ajax({
+//             url: queryURL,
+//             method: "GET"
+//         }).then(function(response) {
+//             for(let i = 0; i < 99; i++) {
+//             let recipeURL = (response.hits[i].recipe.url);
+//             //console.log(recipeURL)
+//             //NEED TO APPEND OR TEXT TO A CARD
+//             let recipeImg = (response.hits[i].recipe.image);
+//             console.log(recipeImg);
+//             //NEED TO APPEND OR TEXT TO A CARD
+//             let recipeLabel = (response.hits[i].recipe.label);
+//             //console.log(recipeLabel);
+//             //NEED TO APPEND OR TEXT TO A CARD
+//             //console.log(response.count);
+//             //console.log(response);
+//             }
+//         });
+
+
+
+// // $("#searchBtn1").on("click", function(event) {
+
+// // let drink = $(`#searchDrink`).val();
+// // let queryURL_1 ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink + "";
+ 
+
+// // $.ajax({
+// //     url: queryURL_1,
+// //     method: "GET"
+// // }).then(function(response) {
+// //     for(let i = 0; i < 10; i++) {
+// //     let drinkImg = (response.drinks[i].strDrinkThumb)
+// //     console.log(drinkImg);
+// //     let drinkName = (response.drinks[i].strDrink);
+// //     console.log(drinkName);
+// //     let drinkInstr = (response.drinks[i].strInstructions);
+// //     console.log(drinkInstr);
+// //     let drinkIngr1 = (response.drinks[i].strIngredient1);
+// //     console.log(drinkIngr1);
+// //     let drinkIngr2 = (response.drinks[i].strIngredient2);
+// //     console.log(drinkIngr2);
+// //     let drinkIngr3 = (response.drinks[i].strIngredient3);
+// //     console.log(drinkIngr3);
+// //     let drinkIngr4 = (response.drinks[i].strIngredient4);
+// //     console.log(drinkIngr4);
+// //     let drinkIngr5 = (response.drinks[i].strIngredient5);
+// //     //console.log(drinkIngr5);
+// //     //console.log(response)
+// //     }
+// //     });
+
+
+// // });
+
+    let randomItem = ["chicken", "beef", "pasta", "cake", "tofu", "steak", "potatos", "mushrooms", "jello", "seafood"];
+    function randomStr(){
+        return randomItem[Math.floor(Math.random() * randomItem.length)];
         }
+    let answer = randomStr();
+
+    // Need to make a Feeling Lucky Button and then put it in the call
+        $("#search-button").on("click", function(event) {
+
+            let feelinLucky = "https://api.edamam.com/search?q=" + answer + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
+            let random = Math.floor((Math.random() * 10) + 1);
+                
+            $.ajax({
+                url: feelinLucky,
+                method: "GET"
+            }).then(function(response) {
+                //for(let i = 0; i < 10; i++) {
+                let recipeURL = (response.hits[random].recipe.url);
+                //console.log(recipeURL)
+                //NEED TO APPEND OR TEXT TO A CARD
+                let recipeImg = (response.hits[random].recipe.image);
+                //console.log(recipeImg);
+                //NEED TO APPEND OR TEXT TO A CARD
+                let recipeLabel = (response.hits[random].recipe.label);
+                //console.log(recipeLabel);
+                //NEED TO APPEND OR TEXT TO A CARD
+                //console.log(response);
+            });
+        
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        coverTrigger = true;
+        closeOnClick=true;
+        var instances = M.Dropdown.init(elems, coverTrigger);
+        instances = M.Dropdown.init(elems, closeOnClick);
+        alignment = 'right';
+        instances = M.Dropdown.init(elems, alignment);
     });
 });
-
-
-// $("#searchBtn1").on("click", function(event) {
-
-// let drink = $(`#searchDrink`).val();
-// let queryURL_1 ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink + "";
- 
-
-// $.ajax({
-//     url: queryURL_1,
-//     method: "GET"
-// }).then(function(response) {
-//     for(let i = 0; i < 10; i++) {
-//     let drinkImg = (response.drinks[i].strDrinkThumb)
-//     console.log(drinkImg);
-//     let drinkName = (response.drinks[i].strDrink);
-//     console.log(drinkName);
-//     let drinkInstr = (response.drinks[i].strInstructions);
-//     console.log(drinkInstr);
-//     let drinkIngr1 = (response.drinks[i].strIngredient1);
-//     console.log(drinkIngr1);
-//     let drinkIngr2 = (response.drinks[i].strIngredient2);
-//     console.log(drinkIngr2);
-//     let drinkIngr3 = (response.drinks[i].strIngredient3);
-//     console.log(drinkIngr3);
-//     let drinkIngr4 = (response.drinks[i].strIngredient4);
-//     console.log(drinkIngr4);
-//     let drinkIngr5 = (response.drinks[i].strIngredient5);
-//     //console.log(drinkIngr5);
-//     //console.log(response)
-//     }
-//     });
-
-
-// });
-
-let randomItem = ["chicken", "beef", "pasta", "cake", "tofu", "steak", "potatos", "mushrooms", "jello", "seafood"];
-function randomStr(){
-    return randomItem[Math.floor(Math.random() * randomItem.length)];
-    }
-let answer = randomStr();
-
-// Need to make a Feeling Lucky Button and then put it in the call
-    $("#search-button").on("click", function(event) {
-
-        let feelinLucky = "https://api.edamam.com/search?q=" + answer + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
-        let random = Math.floor((Math.random() * 10) + 1);
-            
-        $.ajax({
-            url: feelinLucky,
-            method: "GET"
-        }).then(function(response) {
-            //for(let i = 0; i < 10; i++) {
-            let recipeURL = (response.hits[random].recipe.url);
-            //console.log(recipeURL)
-            //NEED TO APPEND OR TEXT TO A CARD
-            let recipeImg = (response.hits[random].recipe.image);
-            //console.log(recipeImg);
-            //NEED TO APPEND OR TEXT TO A CARD
-            let recipeLabel = (response.hits[random].recipe.label);
-            //console.log(recipeLabel);
-            //NEED TO APPEND OR TEXT TO A CARD
-            //console.log(response);
-        });
-    });
     
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    coverTrigger = true;
-    closeOnClick=true;
-    var instances = M.Dropdown.init(elems, coverTrigger);
-    instances = M.Dropdown.init(elems, closeOnClick);
-    alignment = 'right';
-    instances = M.Dropdown.init(elems, alignment);
-  });
- 
-//
+
 function cards() {
         let randomItem = ["steak"]; 
         let key = ["e7241b29fc9ae4ee4298c87a337cc0e7"];
@@ -402,7 +406,6 @@ function cards() {
         $(`#vodkaIng5`).text(vodkaIngr5);
         })
     }); 
-
-});        
+    
 //End of ready function
-            
+      
