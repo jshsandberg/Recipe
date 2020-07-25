@@ -9,17 +9,26 @@ function match(str1){
 
 $("#search-button").on("click", function(event) {
 // WHATEVER THE SEARCH INPUT ID IS
-let str = $(`#search`).val();
+    let str = $(`#search`).val();
 
   
   //console.log("The match:"+ JSON.stringify(match(str)));
   //console.log(JSON.stringify(match(str)));
-  var x= JSON.stringify(match(str));
+  var x= match(str);
   console.log(x);
-  if(x){
-    $(document).ready(function(){
-        $('.modal').modal();
-    });
+  console.log("type of the return: " + typeof(match(str)));
+  
+  if(x===false){
+      console.log("THERE IS NO NUMBer");
+      $("#search-button").removeClass("modal-trigger");
+      console.log("this is the if statement"+x);
+    
+  }
+  else{
+    console.log("THERE IS A NUMBER");
+    console.log("what gives x?"+x);
+    $("#search-button").addClass("modal-trigger");
+    $('.modal').modal();
   }
   
 
