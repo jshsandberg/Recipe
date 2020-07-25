@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Recipes at Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- favicon links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper deep-purple lighten-3 ">
+        <a href="#" class="brand-logo">Recipes</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="recipe.html" id = "#recipe">Recipes</a></li>
+        <li><a href="drink-results.html" id="#drinks">Drinks</a></li>
+        <li><a href="dtod.html" id="dtod">Dish of the Day</a></li>
+        <li>
+          <a class='dropdown-trigger btn indigo lighten-2' href='#' data-target='dropdown1'>Filters</a>
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#recipe" id="veggie"><i class="material-icons">spa</i>Vegetarian</a></li>
+            <li><a href="#recipe" id="meat"><i class="material-icons">restaurant_menu</i>Meat</a></li>
+            <!--<li class="divider" tabindex="-1"></li>-->
+            <li><a href="#recipe" id="calories"><i class="material-icons">grain</i>Calories</a></li>
+            <li><a href="#dtod" id="drinks"><i class="material-icons">local_drink</i>Drinks</a></li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Dropdown Trigger -->
+  
+    <!-- JUMBOTRON code snippet -->
+    <div id="index-banner" class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br><br>
+          <div  class="row center">
+            <h1 id="h1">Recipes to Cook at Home</h1>
+          </div>
+          <div class="row center blue-text text-darken-4">
+            <nav>
+              <div class="nav-wrapper">
+                <div class="input-field">
+                  <input id="search" type="search" required>
+                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </div>
+            </nav>     
+            <button  id="search-button" data-target="modal1" class="btn-large waves-effect waves-light lighten-1 ">Get Cookin'</button>
+            <!-- Modal Structure -->
+         <div id="modal1" class="modal">
+             <div class="modal-content">
+             <h4>Invalid Input</h4>
+             <p>Input should be a type of food!</p>
+             </div>
+             <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+             </div>
+         </div>
+         </div>
+         <br><br>
+        </div>
+      </div>
+      <div class="parallax"><img src="assets/images/parallax-veggies.jpg" alt="veggies" class="responsive-img"></div>
+    </div>
+
+    <div id="magic" class="container">
+      <div class="row">
+        <!-- Cards Start -->
+        <div class="card">
+            <div class="card-image">
+                <img id="r-img" src="">
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title" id="r-title">Card Title</span>
+                <p id="r-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img id="t-img" src="">
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title" id="t-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img id="s-img" src="">
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title" id="s-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+              <img id="u-img" src="">
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+              <span class="card-title" id="u-title">Card Title</span>
+              <p id="u-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+          </div>
+      </div>
+        <!-- Cards End -->
+      </div>
+      <!-- Drink Cards Start -->
+      <div class="row">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="drinkimg1" class="activator" src="">
+          </div>
+          <div class="card-content">
+            <span id="drinktitle1" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="drinktitle1.5" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p><span id="drinkIngD"></span></p>
+            <ul id="drinkIng1"></ul>
+            <ul id="drinkIng2"></ul>
+            <ul id="drinkIng3"></ul>
+            <ul id="drinkIng4"></ul>
+            <ul id="drinkIng5"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="whiskeyimg1" class="activator" src="">
+          </div>
+          <div class="card-content">
+            <span id="whiskeytitle1" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="whiskeytitle1.5" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p><span id="whiskeyIngD"></span></p>
+            <ul id="whiskeyIng1"></ul>
+            <ul id="whiskeyIng2"></ul>
+            <ul id="whiskeyIng3"></ul>
+            <ul id="whiskeyIng4"></ul>
+            <ul id="whiskeyIng5"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="ginimg1" class="activator" src="">
+          </div>
+          <div class="card-content">
+            <span id="gintitle1" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="gintitle1.5" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p><span id="ginIngD"></span></p>
+            <ul id="ginIng1"></ul>
+            <ul id="ginIng2"></ul>
+            <ul id="ginIng3"></ul>
+            <ul id="ginIng4"></ul>
+            <ul id="ginIng5"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="vodkaimg1" class="activator" src="">
+          </div>
+          <div class="card-content">
+            <span id="vodkatitle1" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="vodkatitle1.5" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p><span id="vodkaIngD"></span></p>
+            <ul id="vodkaIng1"></ul>
+            <ul id="vodkaIng2"></ul>
+            <ul id="vodkaIng3"></ul>
+            <ul id="vodkaIng4"></ul>
+            <ul id="vodkaIng5"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Recipe Project</h5>
+          <p class="grey-text text-lighten-4">Are you stuck working at home with bags of postmates on your desk? Did you gain 20 pounds? Wanna loose weight? Welcome to Remote Workers Recipe Lookup! Save money and eat healthy with our database of recipes. </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Created By</h5>
+            <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Spencer Smith</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Crystal Han</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Eric Folenta</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Josh Sandberg</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2020 Recipe Project 
+        <a class="grey-text text-lighten-4 right" href="#!">Home</a>
+        </div>
+      </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      //Dropdown menu 
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        coverTrigger = true;
+        closeOnClick=true;
+        var instances = M.Dropdown.init(elems, coverTrigger);
+        instances = M.Dropdown.init(elems, closeOnClick);
+        alignment = 'right';
+        instances = M.Dropdown.init(elems, alignment);
+      });
+    </script>
+    <!-- <script src="./assets/script.js"></script> -->
+    <script src="./assets/script1.js"></script>
+  </body>
+</html>
