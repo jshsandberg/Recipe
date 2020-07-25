@@ -14,39 +14,39 @@ $(document).ready(function(){
         instances = M.Dropdown.init(elems, alignment);
     });
 
-    // function match(str1){
-    //     var numbers={
-    //     containsNumber : /\d+/
-    //     }
-    //     var expMatch = {};
-    //     expMatch.containsNumber = numbers.containsNumber.test(str1);
-    //     return expMatch.containsNumber;
-    // }
+    function match(str1){
+        var numbers={
+        containsNumber : /\d+/
+        }
+        var expMatch = {};
+        expMatch.containsNumber = numbers.containsNumber.test(str1);
+        return expMatch.containsNumber;
+    }
 
-    // $("#search-button").on("click", function(event) {
-    // // WHATEVER THE SEARCH INPUT ID IS
-    //     let str = $(`#search`).val();
+    $("#search-button").on("click", function(event) {
+    // WHATEVER THE SEARCH INPUT ID IS
+        let str = $(`#search`).val();
 
     
-    //     //console.log("The match:"+ JSON.stringify(match(str)));
-    //     //console.log(JSON.stringify(match(str)));
-    //     var x= match(str);
-    //     console.log(x);
-    //     console.log("type of the return: " + typeof(match(str)));
+        //console.log("The match:"+ JSON.stringify(match(str)));
+        //console.log(JSON.stringify(match(str)));
+        var x= match(str);
+        console.log(x);
+        console.log("type of the return: " + typeof(match(str)));
         
-    //     if(x===false){
-    //         console.log("THERE IS NO NUMBer");
-    //         $("#search-button").removeClass("modal-trigger");
-    //         console.log("this is the if statement"+x);
+        if(x===false){
+            console.log("THERE IS NO NUMBer");
+            $("#search-button").removeClass("modal-trigger");
+            console.log("this is the if statement"+x);
             
-    //     }
-    //     else{
-    //         console.log("THERE IS A NUMBER");
-    //         console.log("what gives x?"+x);
-    //         $("#search-button").addClass("modal-trigger");
-    //         $('.modal').modal();
-    //     }
-    // });
+        }
+        else{
+            console.log("THERE IS A NUMBER");
+            console.log("what gives x?"+x);
+            $("#search-button").addClass("modal-trigger");
+            $('.modal').modal();
+        }
+    });
     
 
 //console.log(typeof str);
@@ -158,105 +158,233 @@ $(document).ready(function(){
     
 
 function cards() {
-        let randomItem = ["steak"]; 
-        let key = ["e7241b29fc9ae4ee4298c87a337cc0e7"];
-        let appID = ["6d9844ca"];
-        let homeURL = "https://api.edamam.com/search?q=" + randomItem + "&app_id=" + appID + "&app_key=" + key;
+    let randomItem = ["steak"]; 
+    let key = ["e7241b29fc9ae4ee4298c87a337cc0e7"];
+    let appID = ["6d9844ca"];
+    let homeURL = "https://api.edamam.com/search?q=" + randomItem + "&app_id=" + appID + "&app_key=" + key + "&from=0&to=10";
 
-            $.ajax({
-                url: homeURL,
-                method: "GET"
-            }).then(function(response) {
-                let index = Math.floor((Math.random() * 10) + 0);
-                //console.log(index)
-                let recipeURL = (response.hits[index].recipe.url);
-                console.log(recipeURL)
-                // let cookTime = (response.hits[index].recipe.totalTime);
-                // $(`#r-description`).text(`${cookTime} minutes`);
-                //NEED TO APPEND OR TEXT TO A CARD
-                let recipeImg = (response.hits[index].recipe.image);
-                //console.log(recipeImg);
-                $(`#r-img`).attr(`src`, `${recipeImg}`);
-                let recipeLabel = (response.hits[index].recipe.label);
-                //console.log(recipeLabel);
-                $(`#r-title`).text(recipeLabel);
-                //console.log(response.count);
-                //console.log(response);
-            });
+    $.ajax({
+        url: homeURL,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        $(`#r-img`).attr(`src`, `${recipeImg}`);
+        let recipeLabel = (response.hits[index].recipe.label);
+        //console.log(recipeLabel);
+        $(`#r-title`).text(recipeLabel);
+        //console.log(response.count);
+        //console.log(response);
+    });
 
-        let randomItem1 = ["pasta"]; 
-        let homeURL1 = "https://api.edamam.com/search?q=" + randomItem1 + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
+    let randomItem1 = ["pasta"]; 
+    let homeURL1 = "https://api.edamam.com/search?q=" + randomItem1 + "&app_id=" + appID + "&app_key=" + key + "&from=0&to=10";
 
-            $.ajax({
-                url: homeURL1,
-                method: "GET"
-            }).then(function(response) {
-                let index = Math.floor((Math.random() * 10) + 0);
-                //console.log(index)
-                let recipeURL = (response.hits[index].recipe.url);
-                console.log(recipeURL)
-                // let cookTime = (response.hits[index].recipe.totalTime);
-                // $(`#r-description`).text(`${cookTime} minutes`);
-                //NEED TO APPEND OR TEXT TO A CARD
-                let recipeImg = (response.hits[index].recipe.image);
-                //console.log(recipeImg);
-                $(`#t-img`).attr(`src`, `${recipeImg}`);
-                let recipeLabel = (response.hits[index].recipe.label);
-                //console.log(recipeLabel);
-                $(`#t-title`).text(recipeLabel);
-                //console.log(response.count);
-                //console.log(response);
-            });
+    $.ajax({
+        url: homeURL1,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        $(`#t-img`).attr(`src`, `${recipeImg}`);
+        let recipeLabel = (response.hits[index].recipe.label);
+        //console.log(recipeLabel);
+        $(`#t-title`).text(recipeLabel);
+        //console.log(response.count);
+        //console.log(response);
+    });
 
-        let randomItem2 = ["vegetables"]; 
-        let homeURL2 = "https://api.edamam.com/search?q=" + randomItem2 + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
+    let randomItem2 = ["vegetables"]; 
+    let homeURL2 = "https://api.edamam.com/search?q=" + randomItem2 + "&app_id=" + appID + "&app_key=" + key + "&from=0&to=10";
 
-            $.ajax({
-                url: homeURL2,
-                method: "GET"
-            }).then(function(response) {
-                let index = Math.floor((Math.random() * 10) + 0);
-                //console.log(index)
-                let recipeURL = (response.hits[index].recipe.url);
-                //console.log(recipeURL)
-                // let cookTime = (response.hits[index].recipe.totalTime);
-                // $(`#r-description`).text(`${cookTime} minutes`);
-                //NEED TO APPEND OR TEXT TO A CARD
-                let recipeImg = (response.hits[index].recipe.image);
-                //console.log(recipeImg);
-                $(`#s-img`).attr(`src`, `${recipeImg}`);
-                let recipeLabel = (response.hits[index].recipe.label);
-                //console.log(recipeLabel);
-                $(`#s-title`).text(recipeLabel);
-                //console.log(response.count);
-                //console.log(response);
-            });
+    $.ajax({
+        url: homeURL2,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        $(`#s-img`).attr(`src`, `${recipeImg}`);
+        let recipeLabel = (response.hits[index].recipe.label);
+        //console.log(recipeLabel);
+        $(`#s-title`).text(recipeLabel);
+        //console.log(response.count);
+        //console.log(response);
+    });
 
-            let chocolate = ["chocolate"]; 
-            let queryURL_chocolate = "https://api.edamam.com/search?q=" + chocolate + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
-    
-                $.ajax({
-                    url: queryURL_chocolate,
-                    method: "GET"
-                }).then(function(response) {
-                    let index = Math.floor((Math.random() * 10) + 0);
-                    //console.log(index)
-                    let recipeURL = (response.hits[index].recipe.url);
-                    //console.log(recipeURL)
-                    // let cookTime = (response.hits[index].recipe.totalTime);
-                    // $(`#r-description`).text(`${cookTime} minutes`);
-                    //NEED TO APPEND OR TEXT TO A CARD
-                    let recipeImg = (response.hits[index].recipe.image);
-                    //console.log(recipeImg);
-                    $(`#u-img`).attr(`src`, `${recipeImg}`);
-                    let recipeLabel = (response.hits[index].recipe.label);
-                    //console.log(recipeLabel);
-                    $(`#u-title`).text(recipeLabel);
-                    //console.log(response.count);
-                    //console.log(response);
-                });
-    
-    }
+    let chocolate = ["chocolate"]; 
+    let queryURL_chocolate = "https://api.edamam.com/search?q=" + chocolate + "&app_id=" + appID + "&app_key=" + key + "&from=0&to=10";
+
+    $.ajax({
+        url: queryURL_chocolate,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        $(`#u-img`).attr(`src`, `${recipeImg}`);
+        let recipeLabel = (response.hits[index].recipe.label);
+        //console.log(recipeLabel);
+        $(`#u-title`).text(recipeLabel);
+        //console.log(response.count);
+        //console.log(response);
+    });
+
+    let chicken = ["chicken"]; 
+    let queryURL_chicken = "https://api.edamam.com/search?q=" + chicken + "&app_id=69290d96&app_key=5e7e48ad2e70c5227338b513e6a544d9&from=0&to=10";
+
+    $.ajax({
+        url: queryURL_chicken,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+
+ 
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        //let chickenImg=$("#v-img", this).attr("src");
+        //$("#v-img", this).attr("src",chickenImg.replace("https://media.gettyimages.com/photos/stack-of-books-picture-id157482029?s=612x612","https://mamadips.com/wp-content/uploads/2016/11/defimage.gif"));
+        //let newSrc = $(`#v-img`).attr(`src`, img.replace("https://media.gettyimages.com/photos/stack-of-books-picture-id157482029?s=612x612"));
+        //$(`#v-img`).attr(`src`, newSrc);
+        //console.log($(`#v-img`))
+        $(`#v-img`).attr(`src`, recipeImg);
+        let recipeLabel = (response.hits[index].recipe.label);
+        console.log(recipeLabel);
+        $(`#v-title`).text(recipeLabel);
+        //console.log(response.count);
+        console.log(response);
+    });
+
+    let pizza = ["pizza"]; 
+    let queryURL_pizza = "https://api.edamam.com/search?q=" + pizza + "&app_id=6d9844ca&app_key=e7241b29fc9ae4ee4298c87a337cc0e7&from=0&to=10";
+
+    $.ajax({
+        url: queryURL_pizza,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        $(`#w-img`).attr(`src`, `${recipeImg}`);
+        let recipeLabel = (response.hits[index].recipe.label);
+        //console.log(recipeLabel);
+        $(`#w-title`).text(recipeLabel);
+        //console.log(response.count);
+        console.log(response);
+    });
+
+    let fish = ["tuna"]; 
+    let queryURL_fish = "https://api.edamam.com/search?q=" + fish + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
+
+    $.ajax({
+        url: queryURL_fish,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        $(`#x-img`).attr(`src`, `${recipeImg}`);
+        let recipeLabel = (response.hits[index].recipe.label);
+        //console.log(recipeLabel);
+        $(`#x-title`).text(recipeLabel);
+        //console.log(response.count);
+        //console.log(response);
+    });
+
+    let sandwhich = ["sandwhich"]; 
+    let queryURL_sandwhich = "https://api.edamam.com/search?q=" + sandwhich + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
+
+    $.ajax({
+        url: queryURL_sandwhich,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        $(`#y-img`).attr(`src`, `${recipeImg}`);
+        let recipeLabel = (response.hits[index].recipe.label);
+        //console.log(recipeLabel);
+        $(`#y-title`).text(recipeLabel);
+        //console.log(response.count);
+        //console.log(response);
+    });
+
+    let breakfest = ["tacos"]; 
+    let queryURL_breakfest = "https://api.edamam.com/search?q=" + breakfest + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
+
+    $.ajax({
+        url: queryURL_breakfest,
+        method: "GET"
+    }).then(function(response) {
+        let index = Math.floor((Math.random() * 10) + 0);
+        //console.log(index)
+        //let recipeURL = (response.hits[index].recipe.url);
+        //console.log(recipeURL)
+        // let cookTime = (response.hits[index].recipe.totalTime);
+        // $(`#r-description`).text(`${cookTime} minutes`);
+        //NEED TO APPEND OR TEXT TO A CARD
+        let recipeImg = (response.hits[index].recipe.image);
+        //console.log(recipeImg);
+        $(`#z-img`).attr(`src`, `${recipeImg}`);
+        let recipeLabel = (response.hits[index].recipe.label);
+        //console.log(recipeLabel);
+        $(`#z-title`).text(recipeLabel);
+        //console.log(response.count);
+        console.log(response);
+    });
+
+
+
 
     let tequila = [`tequila`];
     let queryURL_tequila ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + tequila + "";
@@ -330,9 +458,7 @@ function cards() {
         $(`#whiskeyIng5`).text(whiskeyIngr5);
         //console.log(drinkIngr5);
         //console.log(response)
-        })
-        //console.log(drinkIngr5);
-        //console.log(response)
+    });
 
 
     let gin = [`gin`];
@@ -367,7 +493,7 @@ function cards() {
         //console.log(drinkIngr4);
         let ginIngr5 = (response.drinks[i].strIngredient5);
         $(`#ginIng5`).text(ginIngr5);
-        })
+    })
 
 
 
@@ -380,7 +506,7 @@ function cards() {
         url: queryURL_vodka,
         method: "GET"
     }).then(function(response) {
-        let i = Math.floor((Math.random() * 7) + 0);
+        let i = Math.floor((Math.random() * 6) + 0);
         let vodkaImg = (response.drinks[i].strDrinkThumb);
         $(`#vodkaimg1`).attr(`src`, `${vodkaImg}`);
         //console.log(drinkImg);
@@ -404,8 +530,11 @@ function cards() {
         //console.log(drinkIngr4);
         let vodkaIngr5 = (response.drinks[i].strIngredient5);
         $(`#vodkaIng5`).text(vodkaIngr5);
-        })
-    }); 
+    })
     
+};
+}); 
+
+
 //End of ready function
       
