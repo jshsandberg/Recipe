@@ -15,8 +15,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="assets/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
   </head>
   <body>
     <nav>
@@ -80,11 +80,10 @@
     </div>
 
     <div class="container">
-      <div class="row">
-        <!-- Start of Owl Container -->
-        <div class="owl-carousel owl-theme">
+        <h1>Top Recipes!</h1>
+        <hr>
+      <div class="row slider">
           <!-- Steak -->
-          <div class="item">
             <div class="card">
                 <div class="card-image">
                     <img id="r-img" src="">
@@ -94,9 +93,7 @@
                     <span class="card-title" id="r-title">Card Title</span>
                 </div>
             </div>
-          </div>
           <!-- Pasta -->
-          <div class="item">
             <div class="card">
                 <div class="card-image">
                     <img id="t-img" src="">
@@ -107,9 +104,7 @@
                     
                 </div>
             </div>
-          </div>
           <!-- Vegis -->
-          <div class="item">
             <div class="card">
                 <div class="card-image">
                     <img id="s-img" src="">
@@ -120,9 +115,7 @@
                     
                 </div>
             </div>    
-          </div>
           <!-- Chocolate -->
-          <div class="item">
             <div class="card">
                 <div class="card-image">
                     <img id="u-img" src="">
@@ -133,9 +126,7 @@
                     
                 </div>
             </div>
-          </div>
           <!-- Chicken -->
-          <div class="item">
             <div class="card">
                 <div class="card-image" class="block">
                     <img id="v-img" src="">
@@ -146,9 +137,7 @@
                     
                 </div>
             </div>
-          </div>
 
-          <div class="item">
             <div class="card">
                 <div class="card-image">
                     <img id="w-img" src="">
@@ -159,9 +148,7 @@
                     
                 </div>
             </div>
-          </div>
 
-          <div class="item">
             <div class="card">
                 <div class="card-image">
                     <img id="x-img" src="">
@@ -171,10 +158,8 @@
                     <span class="card-title" id="x-title">Card Title</span>
                     
                 </div>
-              </div>
-          </div>
+            </div>
 
-          <div class="item">
             <div class="card">
                 <div class="card-image">
                     <img id="y-img" src="">
@@ -185,9 +170,7 @@
                     
                 </div>
             </div>
-          </div>
-
-          <div class="item">
+         
             <div class="card">
                 <div class="card-image">
                     <img id="z-img" src="">
@@ -198,9 +181,8 @@
                     
                 </div>
             </div>
-          </div>
-        <!-- End of Owl Container-->
-        </div>
+         
+    
 
         <!-- Cards Start -->
         <!-- Cards End -->
@@ -313,27 +295,43 @@
     <!-- Owl Carousel -->
     <script src="./assets/script.js"></script>
     <script src="./assets/script1.js"></script>
-    <script src="assets/owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-      //  initialize owl carousel
-      // $(document).ready(function(){
-        $('.owl-carousel').owlCarousel({
-          loop:true,
-          margin:10,
-          nav:true,
-          responsive: {
-              0:{
-                  items:1
-              },
-              600:{
-                  items:3
-              },
-              1000:{
-                  items:3
-              }
-          }
-        })
-      //  });
+        $('.slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+            ]
+        });
 
       //Dropdown menu 
       document.addEventListener('DOMContentLoaded', function() {
