@@ -41,109 +41,128 @@ $(document).ready(function(){
         $("#recipe-page").show();
     })
     //Main Search button shows results
-    // $("#search-button").on("click", function(event) {
-    // // WHATEVER THE SEARCH INPUT ID IS
-        
-    //     let key = ["e7241b29fc9ae4ee4298c87a337cc0e7"];
-    //     let str = $("#search").val();
-    //     let x= match(str);
-    //     console.log(x);
-    //     console.log("type of the return: " + typeof(match(str)));
-        
-    //     if(x===false){
-    //         $("#home-page").hide();
-    //         $("#recipe-page").hide();
-    //         $("#result-page").show();
-    //         console.log("THERE IS NO NUMBER");
-    //         $("#search-button").removeClass("modal-trigger");
-    //         console.log("this is the if statement"+x);
-    //         let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=83c5c1cd&app_key=" + key;
-    //         $.ajax({
-    //             url: queryURL,
-    //             method: "GET"
-    //         }).then(function(response) {
-    //             //Inside this loop, we need to make a new anchor <a> tag that gets a class for the name, img tag for the image, and a p for the decription of the recipe
-    //             //The anchor is so that when a consumer clicks on the name, it will trigger the recipe page funtion that populates the recipe page
-    //             //There should also be a value attached to each that is the specific URL so the recipe page has something to poulate with
-    //             for(let i = 0; i < 99; i++) {
-    //             let recipeURL = (response.hits[i].recipe.url);
-    //             //console.log(recipeURL)
-    //             //NEED TO APPEND OR TEXT TO A CARD
-    //             let recipeImg = (response.hits[i].recipe.image);
-    //             //console.log(recipeImg);
-    //             //NEED TO APPEND OR TEXT TO A CARD
-    //             let recipeName = (response.hits[i].recipe.label);
-    //             //console.log(recipeLabel);
-    //             //console.log(response);
-    //             }
-    //         });
-    //     }
-    //     else{
-    //         console.log("THERE IS A NUMBER");
-    //         console.log("what gives x?"+x);
-    //         $("#search-button").addClass("modal-trigger");
-    //         $('.modal').modal();
-    //     }
-    // });
-    //     $("#search-button").on("click", function(event) {
-    //     // WHATEVER THE SEARCH INPUT ID IS
-    //     let str = $(`#search`).val();
-        
-
-
-// Working the drink ajax response
     $("#search-button").on("click", function(event) {
+    // WHATEVER THE SEARCH INPUT ID IS
+        
+        let key = ["98c8efd70f465afc9daf96764bb14136"];
+        let app_id = ["d8247746"]
+        let str = $("#search").val();
+        let x= match(str);
+        console.log(x);
+        console.log("type of the return: " + typeof(match(str)));
+        $(`#results`).empty();
 
-    $("#result-page").show();
-    $("#home-page").hide();
-    $("#recipe-page").hide();
-    let drink = $(`#search`).val();
-    let queryURL_1 ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink + "";
-    
+        if(x===false){
+            $("#home-page").hide();
+            $("#recipe-page").hide();
+            $("#result-page").show();
+            console.log("THERE IS NO NUMBER");
+            $("#search-button").removeClass("modal-trigger");
+            console.log("this is the if statement"+x);
+            let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=" + app_id + "&app_key=" + key;
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function(response) {
+                //Inside this loop, we need to make a new anchor <a> tag that gets a class for the name, img tag for the image, and a p for the decription of the recipe
+                //The anchor is so that when a consumer clicks on the name, it will trigger the recipe page funtion that populates the recipe page
+                //There should also be a value attached to each that is the specific URL so the recipe page has something to poulate with
+                for(let i = 0; i < 99; i++) {
+                let recipeURL = (response.hits[i].recipe.url);
+                //console.log(recipeURL)
+                //NEED TO APPEND OR TEXT TO A CARD
+                let recipeImg = (response.hits[i].recipe.image);
+                //console.log(recipeImg);
+                //NEED TO APPEND OR TEXT TO A CARD
+                let recipeName = (response.hits[i].recipe.label);
+                //console.log(recipeLabel);
+                console.log(response);
+                $("#results").append(`
+                <div class="row>
+                    <div id="result-image" class="col s3">
+                        <img id="result img" src="${recipeImg}" alt="pasta">
+                        </div>
+            
+                        <div id="result-content" class="col s9">
+                          <h4>${recipeName}</h4>
+                          <a href="${recipeURL}">WHAT DO WE WANT THE TITLE TO BE?</a>
 
-    $.ajax({
-        url: queryURL_1,
-        method: "GET"
-    }).then(function(response) {
-        for(let i = 0; i < 10; i++) {
-
-        let drinkImg = (response.drinks[i].strDrinkThumb)
-        //console.log(drinkImg)
-        let drinkName = (response.drinks[i].strDrink);
-        //console.log(drinkName);
-        let drinkInstr = (response.drinks[i].strInstructions);
-        //console.log(drinkInstr);
-        let drinkIngr1 = (response.drinks[i].strIngredient1);
-        //console.log(drinkIngr1);
-        let drinkIngr2 = (response.drinks[i].strIngredient2);
-        //console.log(drinkIngr2);
-        let drinkIngr3 = (response.drinks[i].strIngredient3);
-        //console.log(drinkIngr3);
-        let drinkIngr4 = (response.drinks[i].strIngredient4);
-        //console.log(drinkIngr4);
-        let drinkIngr5 = (response.drinks[i].strIngredient5);
-        //console.log(drinkIngr5);
-        console.log(response)
-        $("#results").append(`
-        <div id="result-image" class="col s3">
-                <img id="result img" src="${drinkImg}" alt="pasta">
-                </div>
-    
-                <div id="result-content" class="col s9">
-                  <h4>${drinkName}</h4>
-                  <h6>${drinkInstr}</h6>
-                  <ul>${drinkIngr1}</ul>
-                  <ul>${drinkIngr2}</ul>
-                  <ul>${drinkIngr3}</ul>
-                  <ul>${drinkIngr4}</ul>
-                  <ul>${drinkIngr5}</ul>
-                </div>
-        `)
+                        </div>
+                    </div>
+                </div>    
+                `)
+                }
+            });
         }
-        });
-
-
+        else{
+            console.log("THERE IS A NUMBER");
+            console.log("what gives x?"+x);
+            $("#search-button").addClass("modal-trigger");
+            $('.modal').modal();
+        }
     });
+        // $("#search-button").on("click", function(event) {
+        // // WHATEVER THE SEARCH INPUT ID IS
+        // let str = $(`#search`).val();
+        // });
+
+
+// Working the drink ajax response need search button for it
+    // $("#search-button").on("click", function(event) {
+
+    // $("#result-page").show();
+    // $("#home-page").hide();
+    // $("#recipe-page").hide();
+    // let drink = $(`#search`).val();
+    // let queryURL_1 ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink + "";
+    // $(`#results`).empty();
+
+    // $.ajax({
+    //     url: queryURL_1,
+    //     method: "GET"
+    // }).then(function(response) {
+    //     for(let i = 0; i < 10; i++) {
+
+    //     let drinkImg = (response.drinks[i].strDrinkThumb)
+    //     //console.log(drinkImg)
+    //     let drinkName = (response.drinks[i].strDrink);
+    //     //console.log(drinkName);
+    //     let drinkInstr = (response.drinks[i].strInstructions);
+    //     //console.log(drinkInstr);
+    //     let drinkIngr1 = (response.drinks[i].strIngredient1);
+    //     //console.log(drinkIngr1);
+    //     let drinkIngr2 = (response.drinks[i].strIngredient2);
+    //     //console.log(drinkIngr2);
+    //     let drinkIngr3 = (response.drinks[i].strIngredient3);
+    //     //console.log(drinkIngr3);
+    //     let drinkIngr4 = (response.drinks[i].strIngredient4);
+    //     //console.log(drinkIngr4);
+    //     let drinkIngr5 = (response.drinks[i].strIngredient5);
+    //     //console.log(drinkIngr5);
+    //     //console.log(response)
+    //     $("#results").append(`
+        // <div id="result-image" class="col s3">
+        //     <div>
+        //         <img id="result img" src="${drinkImg}" alt="pasta">
+                
+    
+        //         <div id="result-content" class="col s9">
+        //             <h4>${drinkName}</h4>
+        //             <h6>${drinkInstr}</h6>
+        //             <ul>${drinkIngr1}</ul>
+        //             <ul>${drinkIngr2}</ul>
+        //             <ul>${drinkIngr3}</ul>
+        //             <ul>${drinkIngr4}</ul>
+        //             <ul>${drinkIngr5}</ul>
+        //         </div>
+        //     </div>
+        // </div>        
+        // `)
+        // }
+        // });
+
+
+    // });
 
     // This is the random dish search function
     let randomItem = ["chicken", "beef", "pasta", "cake", "tofu", "steak", "potatos", "mushrooms", "jello", "seafood"];
@@ -331,7 +350,7 @@ $(document).ready(function(){
             //console.log(recipeLabel);
             $(`#w-title`).text(recipeLabel);
             //console.log(response.count);
-            console.log(response);
+            //console.log(response);
         });
 
         let fish = ["tuna"]; 
@@ -403,7 +422,7 @@ $(document).ready(function(){
             //console.log(recipeLabel);
             $(`#z-title`).text(recipeLabel);
             //console.log(response.count);
-            console.log(response);
+            //console.log(response);
         });
 
 
