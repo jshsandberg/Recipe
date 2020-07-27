@@ -19,11 +19,10 @@
   <body>
     <nav>
       <div class="nav-wrapper cyan">
-        <a href="#" class="brand-logo">Recipes</a>
+        <a href="#" id="brand-btn" class="brand-logo">Recipes</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="recipe.html" id = "#recipe">Recipes</a></li>
-        <li><a href="drink-results.html" id="#drinks">Drinks</a></li>
-        <li><a href="dtod.html" id="dtod">Random Dish</a></li>
+        <li><a href="#" id ="recipe-btn">Recipes</a></li>
+        <li><a href="#" id="random-dish">Random Dish</a></li>
         <li>
           <a class='dropdown-trigger btn cyan darken-2' href='#' data-target='dropdown1'>Filters</a>
           <!-- Dropdown Structure -->
@@ -64,7 +63,7 @@
          <div id="modal1" class="modal">
              <div class="modal-content">
              <h4>Invalid Input</h4>
-             <p>Input should be a type of food!</p>
+             <p>Sorry! That is not a valid input! Please try again.</p>
              </div>
              <div class="modal-footer">
              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
@@ -244,7 +243,13 @@
 
 <!-- THIS IS THE START OF THE RECIPE PAGE -->
   <div id="recipe-page" class="container">
+    <img src="" alt="" id="recipe-image">
+    <p id="recipe-descripton">
 
+    </p>
+    <ol id="recipe-steps">
+
+    </ol>
   </div>
 <!-- THIS IS THE END OF THE RECIPE PAGE -->
 

@@ -9,6 +9,7 @@ let recipeHide = $("#recipe-page").hide();
 
 $("#search-button").on("click", function(){
   $("#home-page").hide();
+  $("#recipe-page").hide();
   $("#result-page").show();
 })
 
@@ -32,6 +33,6 @@ $("#RECIPE-NAV").on("click", function(){
 
 $("#RANDOM-NAV").on("click", function(){
   $("#result-page").hide();
-  $("#recipe-page").hide();
-  $("#home-page").show();
+  $("#home-page").hide();
+  $("#recipe-page").show();
 })
