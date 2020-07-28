@@ -14,8 +14,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <!-- Owl Carousel -->
+    <!-- Slick Carousel -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css"/>
 
   </head>
   <body>
@@ -61,7 +62,7 @@
                 </div>
               </div>
             </nav>     
-            <button  id="search-button" data-target="modal1" class="btn-large waves-effect waves-light lighten-1 ">Get Cookin'</button>
+            <button  id="search-button" data-target="modal1" class="btn-large waves-effect waves-light lighten-1 pulse">Get Cookin'</button>
             <!-- Modal Structure -->
          <div id="modal1" class="modal">
              <div class="modal-content">
@@ -79,10 +80,12 @@
       <div class="parallax"><img src="assets/images/parallax-veggies.jpg" alt="veggies" class="responsive-img"></div>
     </div>
 
+    <!-- Home Page Container Start -->
     <div id="home-page" class="container">
         <h1>Top Recipes!</h1>
         <hr>
-      <div class="row slider">
+      <!-- Food Cards Start   -->
+      <div class="row food-slider">
           <!-- Steak -->
             <div class="card">
                 <div class="card-image">
@@ -182,13 +185,11 @@
                 </div>
             </div>
          
-    
-
-        <!-- Cards Start -->
-        <!-- Cards End -->
       </div>
+      <!-- Food Cards Ends -->
+
       <!-- Drink Cards Start -->
-      <div class="row">
+      <div class="row drink-slider">
         <div class="card">
           <div class="card-image waves-effect waves-block waves-light">
             <img id="drinkimg1" class="activator" src="">
@@ -265,7 +266,11 @@
           </div>
         </div>
       </div>
+      <!-- Drink Cards End -->
     </div>
+    <!-- Home Page Container Start -->
+
+
     <!-- results page -->
     <div id="result-page">
       <div class="container">
@@ -316,18 +321,18 @@
     <script src="./assets/script1.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        $('.slider').slick({
+        $('.food-slider').slick({
             dots: true,
-            infinite: true,
+            infinite: false,
             speed: 300,
             slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToScroll: 1,
             responsive: [
             {
                 breakpoint: 1024,
                 settings: {
                 slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToScroll: 1,
                 infinite: true,
                 dots: true
                 }
@@ -336,7 +341,7 @@
                 breakpoint: 600,
                 settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2
+                slidesToScroll: 1
                 }
             },
             {
@@ -351,7 +356,41 @@
             // instead of a settings object
             ]
         });
-
+        $('.drink-slider').slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+            ]
+        });
       //Dropdown menu 
       document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.dropdown-trigger');
