@@ -531,7 +531,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let drinkName = (response.drinks[i].strDrink);
             $(`#drinktitle1`).text(drinkName);
-            $(`#drinktitle1.5`).text(drinkName);
+            $(`#drinktitle15`).text(drinkName);
             let drinkInstr = (response.drinks[i].strInstructions);
             //console.log(drinkInstr);
             $(`#drinkIngD`).text(drinkInstr);
