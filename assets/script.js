@@ -112,8 +112,7 @@ $(document).ready(function(){
     queryURLs(str);
     console.log(queryURLs(""));
     
-        
-        
+    
           
     
     //Main Search button shows results
@@ -122,11 +121,12 @@ $(document).ready(function(){
         search=true;
         let key = ["98c8efd70f465afc9daf96764bb14136"];
         let app_id = ["d8247746"];
-        str = $("#search").val();
+        str = $("#search").val().trim();
         let x= match(str);
         console.log(x);
         console.log("type of the return: " + typeof(match(str)));
         $(`#results`).empty();
+        $("#typed-result").text(str);
 
         if(x===false){
             $("#home-page").hide();
@@ -254,7 +254,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#steakURL`).attr(`href`, recipeURL);
             //console.log(recipeURL)
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
@@ -278,8 +279,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
-            //console.log(recipeURL)
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#pastaURL`).attr(`href`, recipeURL);
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
             //NEED TO APPEND OR TEXT TO A CARD
@@ -302,8 +303,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
-            //console.log(recipeURL)
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#vegiURL`).attr(`href`, recipeURL);
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
             //NEED TO APPEND OR TEXT TO A CARD
@@ -326,8 +327,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
-            //console.log(recipeURL)
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#chocolateURL`).attr(`href`, recipeURL);
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
             //NEED TO APPEND OR TEXT TO A CARD
@@ -350,8 +351,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
-            //console.log(recipeURL)
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#chickenURL`).attr(`href`, recipeURL);
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
             //NEED TO APPEND OR TEXT TO A CARD
@@ -381,8 +382,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
-            //console.log(recipeURL)
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#pizzaURL`).attr(`href`, recipeURL);
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
             //NEED TO APPEND OR TEXT TO A CARD
@@ -405,8 +406,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
-            //console.log(recipeURL)
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#tunaURL`).attr(`href`, recipeURL);
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
             //NEED TO APPEND OR TEXT TO A CARD
@@ -429,8 +430,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
-            //console.log(recipeURL)
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#sandwhichURL`).attr(`href`, recipeURL);
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
             //NEED TO APPEND OR TEXT TO A CARD
@@ -453,8 +454,8 @@ $(document).ready(function(){
         }).then(function(response) {
             let index = Math.floor((Math.random() * 10) + 0);
             //console.log(index)
-            //let recipeURL = (response.hits[index].recipe.url);
-            //console.log(recipeURL)
+            let recipeURL = (response.hits[index].recipe.url);
+            $(`#tacoURL`).attr(`href`, recipeURL);
             // let cookTime = (response.hits[index].recipe.totalTime);
             // $(`#r-description`).text(`${cookTime} minutes`);
             //NEED TO APPEND OR TEXT TO A CARD
