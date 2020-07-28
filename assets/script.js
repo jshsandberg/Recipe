@@ -102,11 +102,12 @@ $(document).ready(function(){
         search=true;
         let key = ["98c8efd70f465afc9daf96764bb14136"];
         let app_id = ["d8247746"];
-        str = $("#search").val();
+        str = $("#search").val().trim();
         let x= match(str);
         console.log(x);
         console.log("type of the return: " + typeof(match(str)));
         $(`#results`).empty();
+        $("#typed-result").text(str);
 
         if(x===false){
             $("#home-page").hide();
