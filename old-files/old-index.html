@@ -18,14 +18,13 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper deep-purple lighten-3 ">
-        <a href="#" class="brand-logo">Recipes</a>
+      <div class="nav-wrapper cyan">
+        <a href="#" id="brand-btn" class="brand-logo">Recipes</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="recipe.html" id = "#recipe">Recipes</a></li>
-        <li><a href="drink-results.html" id="#drinks">Drinks</a></li>
-        <li><a href="dtod.html" id="dtod">Dish of the Day</a></li>
+        <li><a href="#" id ="recipe-btn">Recipes</a></li>
+        <li><a href="#" id="random-dish">Random Dish</a></li>
         <li>
-          <a class='dropdown-trigger btn indigo lighten-2' href='#' data-target='dropdown1'>Filters</a>
+          <a class='dropdown-trigger btn cyan darken-2' href='#' data-target='dropdown1'>Filters</a>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
             <li><a href="#recipe" id="veggie"><i class="material-icons">spa</i>Vegetarian</a></li>
@@ -49,9 +48,9 @@
           <div  class="row center">
             <h1 id="h1">Recipes to Cook at Home</h1>
           </div>
-          <div class="row center blue-text text-darken-4">
+          <div class="row center">
             <nav>
-              <div class="nav-wrapper">
+              <div class="nav-wrapper cyan">
                 <div class="input-field">
                   <input id="search" type="search" required>
                   <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -59,12 +58,12 @@
                 </div>
               </div>
             </nav>     
-            <button  id="search-button" data-target="modal1" class="btn-large waves-effect waves-light lighten-1 ">Get Cookin'</button>
+            <button  id="search-button" data-target="modal1" class="btn-large waves-effect waves-light cyan darken-1">Get Cookin'</button>
             <!-- Modal Structure -->
          <div id="modal1" class="modal">
              <div class="modal-content">
              <h4>Invalid Input</h4>
-             <p>Input should be a type of food!</p>
+             <p>Sorry! That is not a valid input! Please try again.</p>
              </div>
              <div class="modal-footer">
              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
@@ -74,16 +73,19 @@
          <br><br>
         </div>
       </div>
-      <div class="parallax"><img src="assets/images/parallax-veggies.jpg" alt="veggies" class="responsive-img"></div>
+      <div class="parallax"><img src="assets/images/bread-parallax-image.jpg" alt="veggies" class="responsive-img"></div>
     </div>
 
-    <div id="magic" class="container">
+
+<!-- THIS IS THE START OF THE HOME PAGE -->
+
+    <div id="home-page" class="container">
       <div class="row">
         <!-- Cards Start -->
         <div class="card">
             <div class="card-image">
                 <img id="r-img" src="">
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <a class="btn-floating halfway-fab waves-effect waves-light cyan"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
                 <span class="card-title" id="r-title">Card Title</span>
@@ -94,7 +96,7 @@
         <div class="card">
             <div class="card-image">
                 <img id="t-img" src="">
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <a class="btn-floating halfway-fab waves-effect waves-light cyan"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
                 <span class="card-title" id="t-title">Card Title</span>
@@ -105,7 +107,7 @@
         <div class="card">
             <div class="card-image">
                 <img id="s-img" src="">
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <a class="btn-floating halfway-fab waves-effect waves-light cyan"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
                 <span class="card-title" id="s-title">Card Title</span>
@@ -116,7 +118,7 @@
         <div class="card">
           <div class="card-image">
               <img id="u-img" src="">
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+              <a class="btn-floating halfway-fab waves-effect waves-light cyan"><i class="material-icons">add</i></a>
           </div>
           <div class="card-content">
               <span class="card-title" id="u-title">Card Title</span>
@@ -204,7 +206,54 @@
         </div>
       </div>
     </div>
-    <footer class="page-footer">
+<!-- THIS IS THE END OF THE HOME PAGE -->
+
+<!-- THIS IS THE START OF THE SEARCH RESULT PAGE -->
+<div id="result-page" class="container">
+  <div class="row">
+      <div class="col s3" id=side-panel>
+        <h5>Options</h5>
+        <hr>
+      </div>
+      <div class="col s9" id="results-panel">
+        <h5>Search Results for</h5>
+        <hr>
+        <div id="result">
+
+          <div id="result-image" class="col s3">
+            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=http%3A%2F%2Fcdn-image.myrecipes.com%2Fsites%2Fdefault%2Ffiles%2Fimage%2Frecipes%2Ffw%2F13%2Fpasta-allamatriciana-x.jpg&w=500&h=335&c=sc&poi=face&q=85" alt="pasta">
+          </div>
+
+          <div id="result-content" class="col s9">
+            <h5 id="recipe-name">Pasta all'Amatriciana</h5>
+            <p id="recipe-desc">
+              The chef at Osteria di San Cesario, Anna Dente, is known as the Queen of Matriciana. She not only makes the pasta and sauce herself, she draws on her family's four decades in the butchering business to make her own guanciale (cured hog jowl)–though the sauce is also fantastic made with pancetta.
+            </p>
+          </div>
+  
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+      
+  </div>
+  </div>
+<!-- THIS IS THE END OF THE SEARCH RESULT PAGE -->
+
+<!-- THIS IS THE START OF THE RECIPE PAGE -->
+  <div id="recipe-page" class="container">
+    <img src="" alt="" id="recipe-image">
+    <p id="recipe-descripton">
+
+    </p>
+    <ol id="recipe-steps">
+
+    </ol>
+  </div>
+<!-- THIS IS THE END OF THE RECIPE PAGE -->
+
+    <footer class="page-footer cyan">
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Recipe Project</h5>
@@ -220,7 +269,7 @@
             </ul>
         </div>
       </div>
-      <div class="footer-copyright">
+      <div class="footer-copyright cyan darken-2">
         <div class="container">
         © 2020 Recipe Project 
         <a class="grey-text text-lighten-4 right" href="#!">Home</a>
@@ -242,7 +291,7 @@
         instances = M.Dropdown.init(elems, alignment);
       });
     </script>
-    <!-- <script src="./assets/script.js"></script> -->
-    <script src="./assets/script1.js"></script>
+    <script src="./assets/script.js"></script>
+    <!-- <script src="./assets/script1.js"></script> -->
   </body>
 </html>
