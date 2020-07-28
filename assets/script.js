@@ -131,6 +131,7 @@ $(document).ready(function(){
         if(x===false){
             $("#home-page").hide();
             $("#recipe-page").hide();
+            $(`#random-page`).hide();
             $("#result-page").show();
             $("#search-button").removeClass("modal-trigger");
             let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=" + app_id + "&app_key=" + key;
