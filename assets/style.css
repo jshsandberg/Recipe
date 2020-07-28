@@ -43,3 +43,11 @@
   margin: 25px 0;
   min-height: 500px;
 }
+#typed-result {
+  text-transform: capitalize;
+  font-style: italic;
+}
+li {
+  list-style-type: disc;
+  margin-left: 40px; 
+}
