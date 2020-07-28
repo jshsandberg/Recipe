@@ -41,7 +41,7 @@ $(document).ready(function(){
     //Nav-bar Hide-Show functions
     $("#brand-btn").on("click", function(){
         $("#result-page").hide();
-        $("#recipe-page").hide();
+        $("#random-page").hide();
         $("#home-page").show();
     })
     $("#recipe-btn").on("click", function(){
@@ -110,10 +110,6 @@ $(document).ready(function(){
         
     }
     queryURLs(str);
-    console.log(queryURLs(""));
-    
-    
-          
     
     //Main Search button shows results
     $("#search-button").on("click", function(event) {
@@ -125,13 +121,12 @@ $(document).ready(function(){
         let x= match(str);
         console.log(x);
         console.log("type of the return: " + typeof(match(str)));
-        $(`#results`).empty();
+        $("#results").empty();
         $("#typed-result").text(str);
 
         if(x===false){
             $("#home-page").hide();
-            $("#recipe-page").hide();
-            $(`#random-page`).hide();
+            $("#random-page").hide();
             $("#result-page").show();
             $("#search-button").removeClass("modal-trigger");
             let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=" + app_id + "&app_key=" + key;
@@ -172,6 +167,7 @@ $(document).ready(function(){
                   for (let index = 0; index < response.hits[i].recipe.ingredientLines.length; index++){
                   let ingredient = response.hits[i].recipe.ingredientLines[index];
                   let newIngredient = $("<li>");
+                  newIngredient.addClass("result-list")
                   newIngredient.text(ingredient);
                   ingredientList.append(newIngredient);
                   }
@@ -233,9 +229,10 @@ $(document).ready(function(){
             //list of ingredients under the picture
             ingredientList.addClass("ingredient-list");
             contentDiv.append(ingredientList);
-            for (let index = 0; index < response.hits[i].recipe.ingredientLines.length; index++){
-            let ingredient = response.hits[i].recipe.ingredientLines[index];
+            for (let index = 0; index < response.hits[random].recipe.ingredientLines.length; index++){
+            let ingredient = response.hits[random].recipe.ingredientLines[index];
             let newIngredient = $("<li>");
+            newIngredient.addClass("result-list");
             newIngredient.text(ingredient);
             ingredientList.append(newIngredient);
             }
