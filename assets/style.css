@@ -27,6 +27,12 @@
   margin: 25px 0;
   min-height: 500px;
 }
+
+#random-panel {
+  border-radius: 5px;
+  margin: 25px 0;
+  min-height: 500px;
+}
 #result {
   margin: 20px 0;
 }
@@ -48,6 +54,12 @@
   font-style: italic;
 }
 li {
-  list-style-type: disc;
+  list-style-type: disc !important;
   margin-left: 40px; 
+}
+hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
