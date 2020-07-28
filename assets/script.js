@@ -569,7 +569,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let whiskeyName = (response.drinks[i].strDrink);
             $(`#whiskeytitle1`).text(whiskeyName);
-            $(`#whiskeytitle1.5`).text(whiskeyName);
+            $(`#whiskeytitle15`).text(whiskeyName);
             let whiskeyInstr = (response.drinks[i].strInstructions);
             //console.log(whiskeyInstr);
             $(`#whiskeyIngD`).text(whiskeyInstr);
@@ -606,7 +606,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let ginName = (response.drinks[i].strDrink);
             $(`#gintitle1`).text(ginName);
-            $(`#gintitle1.5`).text(ginName);
+            $(`#gintitle15`).text(ginName);
             let ginInstr = (response.drinks[i].strInstructions);
             //console.log(whiskeyInstr);
             $(`#ginIngD`).text(ginInstr);
@@ -643,7 +643,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let vodkaName = (response.drinks[i].strDrink);
             $(`#vodkatitle1`).text(vodkaName);
-            $(`#vodkatitle1.5`).text(vodkaName);
+            $(`#vodkatitle15`).text(vodkaName);
             let vodkaInstr = (response.drinks[i].strInstructions);
             //console.log(whiskeyInstr);
             $(`#vodkaIngD`).text(vodkaInstr);
@@ -677,7 +677,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let scotchName = (response.drinks[i].strDrink);
             $(`#scotchtitle1`).text(scotchName);
-            $(`#scotchtitle1.5`).text(scotchName);
+            $(`#scotchtitle15`).text(scotchName);
             let scotchInstr = (response.drinks[i].strInstructions);
             //console.log(whiskeyInstr);
             $(`#scotchIngD`).text(scotchInstr);
@@ -711,7 +711,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let scotchName = (response.drinks[i].strDrink);
             $(`#sojutitle1`).text(scotchName);
-            $(`#sojutitle1.5`).text(scotchName);
+            $(`#sojutitle15`).text(scotchName);
             let scotchInstr = (response.drinks[i].strInstructions);
             //console.log(whiskeyInstr);
             $(`#sojuIngD`).text(scotchInstr);
@@ -745,7 +745,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let scotchName = (response.drinks[i].strDrink);
             $(`#ltitle1`).text(scotchName);
-            $(`#ltitle1.5`).text(scotchName);
+            $(`#ltitle15`).text(scotchName);
             let scotchInstr = (response.drinks[i].strInstructions);
             //console.log(whiskeyInstr);
             $(`#lIngD`).text(scotchInstr);
@@ -779,7 +779,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let scotchName = (response.drinks[i].strDrink);
             $(`#teatitle1`).text(scotchName);
-            $(`#teatitle1.5`).text(scotchName);
+            $(`#teatitle15`).text(scotchName);
             let scotchInstr = (response.drinks[i].strInstructions);
             //console.log(whiskeyInstr);
             $(`#teaIngD`).text(scotchInstr);
@@ -813,7 +813,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let scotchName = (response.drinks[i].strDrink);
             $(`#ttitle1`).text(scotchName);
-            $(`#ttitle1.5`).text(scotchName);
+            $(`#ttitle15`).text(scotchName);
             let scotchInstr = (response.drinks[i].strInstructions);
             //console.log(whiskeyInstr);
             $(`#tIngD`).text(scotchInstr);
