@@ -1,8 +1,18 @@
+let key = ["98c8efd70f465afc9daf96764bb14136"];
+let app_id = ["d8247746"];
+let veggie=false;
+let meat=false;
+let calories=false;
+let str="";
+let search = false;
+let drinks=false;
+
 $(document).ready(function(){
     //Initial functions
     cards();
     $("#result-page").hide();
     $("#recipe-page").hide();
+    $(`#random-page`).hide();
     $("#home-page").show();
     //All materialze functions below
     // Parallax Code
@@ -40,13 +50,72 @@ $(document).ready(function(){
         $("#home-page").hide();
         $("#recipe-page").show();
     })
+
+    $("#veggie").on("click", function(event){
+        meat=false;
+        calories=false;
+        drinks=false;
+        veggie=true;
+    });
+    $("#meat").on("click", function(event){
+        veggies=false;
+        calories=false;
+        drinks=false;
+        meat=true;
+    });
+    $("#calories").on("click", function(event){
+        veggies=false;
+        meat=false;
+        drinks=false;
+        calories=true;
+    });
+    $("#drinks").on("click", function(event){
+        veggies=false;
+        meat=false;
+        calories=false;
+        drinks=true;
+    });
+
+    //function for queryURL
+    let queryURL_N ="";
+    function queryURLs(user_input){
+        
+        if(veggie){
+            queryURL_N= "https://api.edamam.com/search?q=Vegetarian "+user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
+            console.log(queryURL_N);
+            console.log("clicked");
+            console.log(user_input);
+        }
+        if(meat){
+            queryURL_N="https://api.edamam.com/search?q=meat "+ user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
+            console.log(queryURL_N);
+            console.log("clicked");
+            console.log(user_input);
+        }
+        if(calories){
+            queryURL_N="https://api.edamam.com/search?q=snack "+ user_input+"&calories=100-300&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
+        }
+        if(drinks){
+            queryURL_N="https://www.thecocktaildb.com/api/json/v1/1/random.php";
+        }
+        if(search && !meat && !calories && !veggie && !drinks){
+            queryURL = "https://api.edamam.com/search?q=" + user_input + "&app_id=" + app_id + "&app_key=" + key;
+            console.log(user_input);
+        }
+        return queryURL_N;
+        
+    }
+    queryURLs(str);
+    console.log(queryURLs(""));
+          
+    
     //Main Search button shows results
     $("#search-button").on("click", function(event) {
     // WHATEVER THE SEARCH INPUT ID IS
-        
+        search=true;
         let key = ["98c8efd70f465afc9daf96764bb14136"];
-        let app_id = ["d8247746"]
-        let str = $("#search").val();
+        let app_id = ["d8247746"];
+        str = $("#search").val();
         let x= match(str);
         console.log(x);
         console.log("type of the return: " + typeof(match(str)));
@@ -58,6 +127,7 @@ $(document).ready(function(){
             $("#result-page").show();
             $("#search-button").removeClass("modal-trigger");
             let queryURL = "https://api.edamam.com/search?q=" + str + "&app_id=" + app_id + "&app_key=" + key;
+
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -108,17 +178,19 @@ $(document).ready(function(){
 
 
     // This is the random dish search function
-    let randomItem = ["chicken", "beef", "pasta", "cake", "tofu", "steak", "potatos", "mushrooms", "jello", "seafood"];
-    function randomStr(){
-        return randomItem[Math.floor(Math.random() * randomItem.length)];
-        }
-    let answer = randomStr();
+
+
 
         
-    $("#random-dish").on("click", function(event) {
+    $("#randomDish").on("click", function(event) {
+        let randomItem = ["chicken", "beef", "pasta", "cake", "tofu", "steak", "potatos", "mushrooms", "jello", "seafood"];
+        function randomStr(){
+            return randomItem[Math.floor(Math.random() * randomItem.length)];
+            }
+        let answer = randomStr();
         $("#result-page").hide();
         $("#home-page").hide();
-        $("#recipe-page").show();
+        $("#random-page").show();
         let feelinLucky = "https://api.edamam.com/search?q=" + answer + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
         let random = Math.floor((Math.random() * 10) + 1);
             
@@ -161,7 +233,7 @@ $(document).ready(function(){
             }
         });
     });
-    
+
 
     function cards() {
         let randomItem = ["steak"]; 
@@ -406,7 +478,7 @@ $(document).ready(function(){
             //console.log(drinkImg);
             let drinkName = (response.drinks[i].strDrink);
             $(`#drinktitle1`).text(drinkName);
-            $(`#drinktitle1.5`).text(drinkName);
+            $(`#drinktitle15`).text(drinkName);
             let drinkInstr = (response.drinks[i].strInstructions);
             //console.log(drinkInstr);
             $(`#drinkIngD`).text(drinkInstr);
@@ -536,6 +608,176 @@ $(document).ready(function(){
             //console.log(drinkIngr4);
             let vodkaIngr5 = (response.drinks[i].strIngredient5);
             $(`#vodkaIng5`).text(vodkaIngr5);
+        })
+
+        let scotch = [`anis`];
+        let queryURL_scotch ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + scotch + "";
+            
+
+        $.ajax({
+            url: queryURL_scotch,
+            method: "GET"
+        }).then(function(response) {
+            let i = Math.floor((Math.random() * 1) + 0);
+            let scotchImg = (response.drinks[i].strDrinkThumb);
+            $(`#scotchimg1`).attr(`src`, `${scotchImg}`);
+            //console.log(drinkImg);
+            let scotchName = (response.drinks[i].strDrink);
+            $(`#scotchtitle1`).text(scotchName);
+            $(`#scotchtitle1.5`).text(scotchName);
+            let scotchInstr = (response.drinks[i].strInstructions);
+            //console.log(whiskeyInstr);
+            $(`#scotchIngD`).text(scotchInstr);
+            let vodkaIngr1 = (response.drinks[i].strIngredient1);
+            //console.log(drinkIngr1);
+            $(`#scotchIng1`).text(vodkaIngr1);
+            let vodkaIngr2 = (response.drinks[i].strIngredient2);
+            $(`#scotchIng2`).text(vodkaIngr2);
+            //console.log(drinkIngr2);
+            let vodkaIngr3 = (response.drinks[i].strIngredient3);
+            $(`#scotchIng3`).text(vodkaIngr3);
+            //console.log(drinkIngr3);
+            let vodkaIngr4 = (response.drinks[i].strIngredient4);
+            $(`#scotchIng4`).text(vodkaIngr4);
+            //console.log(drinkIngr4);
+            let vodkaIngr5 = (response.drinks[i].strIngredient5);
+            $(`#scotchIng5`).text(vodkaIngr5);
+        })
+
+        let soju = [`brandy`];
+        let queryURL_soju ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + soju + "";
+            
+
+        $.ajax({
+            url: queryURL_soju,
+            method: "GET"
+        }).then(function(response) {
+            let i = Math.floor((Math.random() * 4) + 0);
+            let scotchImg = (response.drinks[i].strDrinkThumb);
+            $(`#sojuimg1`).attr(`src`, `${scotchImg}`);
+            //console.log(drinkImg);
+            let scotchName = (response.drinks[i].strDrink);
+            $(`#sojutitle1`).text(scotchName);
+            $(`#sojutitle1.5`).text(scotchName);
+            let scotchInstr = (response.drinks[i].strInstructions);
+            //console.log(whiskeyInstr);
+            $(`#sojuIngD`).text(scotchInstr);
+            let vodkaIngr1 = (response.drinks[i].strIngredient1);
+            //console.log(drinkIngr1);
+            $(`#sojuIng1`).text(vodkaIngr1);
+            let vodkaIngr2 = (response.drinks[i].strIngredient2);
+            $(`#sojuIng2`).text(vodkaIngr2);
+            //console.log(drinkIngr2);
+            let vodkaIngr3 = (response.drinks[i].strIngredient3);
+            $(`#sojuIng3`).text(vodkaIngr3);
+            //console.log(drinkIngr3);
+            let vodkaIngr4 = (response.drinks[i].strIngredient4);
+            $(`#sojuIng4`).text(vodkaIngr4);
+            //console.log(drinkIngr4);
+            let vodkaIngr5 = (response.drinks[i].strIngredient5);
+            $(`#sojuIng5`).text(vodkaIngr5);
+        })
+
+        let l = [`l`];
+        let queryURL_l ="https://www.thecocktaildb.com/api/json/v1/1/search.php?f=" + l + "";
+            
+
+        $.ajax({
+            url: queryURL_l,
+            method: "GET"
+        }).then(function(response) {
+            let i = Math.floor((Math.random() * 5) + 0);
+            let scotchImg = (response.drinks[i].strDrinkThumb);
+            $(`#limg1`).attr(`src`, `${scotchImg}`);
+            //console.log(drinkImg);
+            let scotchName = (response.drinks[i].strDrink);
+            $(`#ltitle1`).text(scotchName);
+            $(`#ltitle1.5`).text(scotchName);
+            let scotchInstr = (response.drinks[i].strInstructions);
+            //console.log(whiskeyInstr);
+            $(`#lIngD`).text(scotchInstr);
+            let vodkaIngr1 = (response.drinks[i].strIngredient1);
+            //console.log(drinkIngr1);
+            $(`#lIng1`).text(vodkaIngr1);
+            let vodkaIngr2 = (response.drinks[i].strIngredient2);
+            $(`#lIng2`).text(vodkaIngr2);
+            //console.log(drinkIngr2);
+            let vodkaIngr3 = (response.drinks[i].strIngredient3);
+            $(`#lIng3`).text(vodkaIngr3);
+            //console.log(drinkIngr3);
+            let vodkaIngr4 = (response.drinks[i].strIngredient4);
+            $(`#lIng4`).text(vodkaIngr4);
+            //console.log(drinkIngr4);
+            let vodkaIngr5 = (response.drinks[i].strIngredient5);
+            $(`#lIng5`).text(vodkaIngr5);
+        })
+
+        let tea = [`tea`];
+        let queryURL_tea ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + tea + "";
+            
+
+        $.ajax({
+            url: queryURL_tea,
+            method: "GET"
+        }).then(function(response) {
+            let i = Math.floor((Math.random() * 5) + 0);
+            let scotchImg = (response.drinks[i].strDrinkThumb);
+            $(`#teaimg1`).attr(`src`, `${scotchImg}`);
+            //console.log(drinkImg);
+            let scotchName = (response.drinks[i].strDrink);
+            $(`#teatitle1`).text(scotchName);
+            $(`#teatitle1.5`).text(scotchName);
+            let scotchInstr = (response.drinks[i].strInstructions);
+            //console.log(whiskeyInstr);
+            $(`#teaIngD`).text(scotchInstr);
+            let vodkaIngr1 = (response.drinks[i].strIngredient1);
+            //console.log(drinkIngr1);
+            $(`#teaIng1`).text(vodkaIngr1);
+            let vodkaIngr2 = (response.drinks[i].strIngredient2);
+            $(`#teaIng2`).text(vodkaIngr2);
+            //console.log(drinkIngr2);
+            let vodkaIngr3 = (response.drinks[i].strIngredient3);
+            $(`#teaIng3`).text(vodkaIngr3);
+            //console.log(drinkIngr3);
+            let vodkaIngr4 = (response.drinks[i].strIngredient4);
+            $(`#teaIng4`).text(vodkaIngr4);
+            //console.log(drinkIngr4);
+            let vodkaIngr5 = (response.drinks[i].strIngredient5);
+            $(`#teaIng5`).text(vodkaIngr5);
+        })
+        
+        let t = [`tropical`];
+        let queryURL_t ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + t + "";
+            
+
+        $.ajax({
+            url: queryURL_tea,
+            method: "GET"
+        }).then(function(response) {
+            let i = Math.floor((Math.random() * 5) + 0);
+            let scotchImg = (response.drinks[i].strDrinkThumb);
+            $(`#timg1`).attr(`src`, `${scotchImg}`);
+            //console.log(drinkImg);
+            let scotchName = (response.drinks[i].strDrink);
+            $(`#ttitle1`).text(scotchName);
+            $(`#ttitle1.5`).text(scotchName);
+            let scotchInstr = (response.drinks[i].strInstructions);
+            //console.log(whiskeyInstr);
+            $(`#tIngD`).text(scotchInstr);
+            let vodkaIngr1 = (response.drinks[i].strIngredient1);
+            //console.log(drinkIngr1);
+            $(`#tIng1`).text(vodkaIngr1);
+            let vodkaIngr2 = (response.drinks[i].strIngredient2);
+            $(`#tIng2`).text(vodkaIngr2);
+            //console.log(drinkIngr2);
+            let vodkaIngr3 = (response.drinks[i].strIngredient3);
+            $(`#tIng3`).text(vodkaIngr3);
+            //console.log(drinkIngr3);
+            let vodkaIngr4 = (response.drinks[i].strIngredient4);
+            $(`#tIng4`).text(vodkaIngr4);
+            //console.log(drinkIngr4);
+            let vodkaIngr5 = (response.drinks[i].strIngredient5);
+            $(`#tIng5`).text(vodkaIngr5);
         })
         
     };
