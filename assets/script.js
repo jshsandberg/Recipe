@@ -66,6 +66,15 @@ $(document).ready(function(){
         calories=true;
     });
 
+    $(".veggies").on("click", function(event){
+        veggie=true;
+    })
+    $(".meats").on("click", function(event){
+        meat=true;
+    })
+    $(".calories").on("click",function(event){
+        calories=true;
+    })
     //function for queryURL
     let queryURL_N ="";
     function queryURLs(user_input){
@@ -89,31 +98,20 @@ $(document).ready(function(){
             queryURL = "https://api.edamam.com/search?q=" + user_input + "&app_id=" + app_id + "&app_key=" + key;
             console.log(user_input);
         }
-        if(!veggie && meat && calories) {
-            queryURL_N= "https://api.edamam.com/search?q=meat calories"+user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
+        // if(!veggie && meat && calories) {
+        //     queryURL_N= "https://api.edamam.com/search?q=meat calories"+user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
             
-        }
-        if(veggie && !meat && calories) {
-            queryURL_N= "https://api.edamam.com/search?q=Vegetarian calories"+user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
+        // }
+        // if(veggie && !meat && calories) {
+        //     queryURL_N= "https://api.edamam.com/search?q=Vegetarian calories"+user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
             
-        }
+        // }
         return queryURL_N;
         
     }
     queryURLs(str);
     console.log(queryURLs(""));
-    $(".filled-in").click(function(){
-        $("#veggies").toggle(this.checked);
-        veggie=true;
-    })
-    $(".filled-in1").click(function(){
-        $("#meats").toggle(this.checked);
-        meat=true;
-    })
-    $(".filled-in2").click(function(){
-        $("#calories1").toggle(this.checked);
-        calories=true;
-    })
+    
         
         
           
