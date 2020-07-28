@@ -81,19 +81,19 @@ $(document).ready(function(){
     function queryURLs(user_input){
         
         if(veggie){
-            queryURL_N= "https://api.edamam.com/search?q=Vegetarian&"+user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
+            queryURL_N= "https://api.edamam.com/search?q=Vegetarian "+user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
             console.log(queryURL_N);
             console.log("clicked");
             console.log(user_input);
         }
         if(meat){
-            queryURL_N="https://api.edamam.com/search?q=meat&"+ user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
+            queryURL_N="https://api.edamam.com/search?q=meat "+ user_input+"&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
             console.log(queryURL_N);
             console.log("clicked");
             console.log(user_input);
         }
         if(calories){
-            queryURL_N="https://api.edamam.com/search?q=snack&"+ user_input+"&calories=100-300&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
+            queryURL_N="https://api.edamam.com/search?q=snack "+ user_input+"&calories=100-300&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
         }
         if(drinks){
             queryURL_N="https://www.thecocktaildb.com/api/json/v1/1/random.php";
