@@ -5,7 +5,6 @@ let meat=false;
 let calories=false;
 let str="";
 let search = false;
-let drinks=false;
 
 $(document).ready(function(){
     //Initial functions
@@ -54,26 +53,17 @@ $(document).ready(function(){
     $("#veggie").on("click", function(event){
         meat=false;
         calories=false;
-        drinks=false;
         veggie=true;
     });
     $("#meat").on("click", function(event){
         veggies=false;
         calories=false;
-        drinks=false;
         meat=true;
     });
     $("#calories").on("click", function(event){
         veggies=false;
         meat=false;
-        drinks=false;
         calories=true;
-    });
-    $("#drinks").on("click", function(event){
-        veggies=false;
-        meat=false;
-        calories=false;
-        drinks=true;
     });
 
     //function for queryURL
@@ -95,10 +85,7 @@ $(document).ready(function(){
         if(calories){
             queryURL_N="https://api.edamam.com/search?q=snack "+ user_input+"&calories=100-300&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10&health=alcohol-free";
         }
-        if(drinks){
-            queryURL_N="https://www.thecocktaildb.com/api/json/v1/1/random.php";
-        }
-        if(search && !meat && !calories && !veggie && !drinks){
+        if(search && !meat && !calories && !veggie){
             queryURL = "https://api.edamam.com/search?q=" + user_input + "&app_id=" + app_id + "&app_key=" + key;
             console.log(user_input);
         }
