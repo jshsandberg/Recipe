@@ -3,6 +3,7 @@ $(document).ready(function(){
     cards();
     $("#result-page").hide();
     $("#recipe-page").hide();
+    $(`#random-page`).hide();
     $("#home-page").show();
     //All materialze functions below
     // Parallax Code
@@ -165,17 +166,19 @@ $(document).ready(function(){
     // });
 
     // This is the random dish search function
-    let randomItem = ["chicken", "beef", "pasta", "cake", "tofu", "steak", "potatos", "mushrooms", "jello", "seafood"];
-    function randomStr(){
-        return randomItem[Math.floor(Math.random() * randomItem.length)];
-        }
-    let answer = randomStr();
+
+
 
         
-    $("#random-dish").on("click", function(event) {
+    $("#randomDish").on("click", function(event) {
+        let randomItem = ["chicken", "beef", "pasta", "cake", "tofu", "steak", "potatos", "mushrooms", "jello", "seafood"];
+        function randomStr(){
+            return randomItem[Math.floor(Math.random() * randomItem.length)];
+            }
+        let answer = randomStr();
         $("#result-page").hide();
         $("#home-page").hide();
-        $("#recipe-page").show();
+        $("#random-page").show();
         let feelinLucky = "https://api.edamam.com/search?q=" + answer + "&app_id=83c5c1cd&app_key=85e70262b0dcd597d98c4f6d78dcc400&from=0&to=10";
         let random = Math.floor((Math.random() * 10) + 1);
             
@@ -194,10 +197,24 @@ $(document).ready(function(){
             //console.log(recipeLabel);
             //NEED TO APPEND OR TEXT TO A CARD
             //console.log(response);
+            $("#random").append(`
+            <div class="row>
+                <div id="result-image" class="col s3">
+                    <img id="result img" src="${recipeImg}" alt="pasta">
+                    </div>
+        
+                    <div id="result-content" class="col s9">
+                      <h4>${recipeLabel}</h4>
+                      <a href="${recipeURL}">WHAT DO WE WANT THE TITLE TO BE?</a>
+
+                    </div>
+                </div>
+            </div>    
+            `)
 
         });
     });
-    
+
 
     function cards() {
         let randomItem = ["steak"]; 
