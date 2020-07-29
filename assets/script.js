@@ -214,7 +214,7 @@ $(document).ready(function(){
       
             //append row div to results
             rowDiv.addClass("row");
-            $("#results").append(rowDiv);
+            $("#random").append(rowDiv);
             //make content div with proper class
             contentDiv.addClass("result-content col s9");
             rowDiv.append(contentDiv);
