@@ -63,3 +63,15 @@ hr {
   background: #333;
   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
+.page-footer {
+  margin-top: 100px;
+}
+.brand-logo {
+  margin-left: 25px;
+}
+#randomDish {
+  margin-top: 15px;
+}
+button#search-button {
+  margin-top: 15px;
+}
