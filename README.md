@@ -1,4 +1,4 @@
-# Project-1
+# Recipe
 This is a group project for UCI bootcam.
 
 We as a group created a website that allows users to have access to 1000's of recipes for both food and drinks. Using two API's from CocktailDB and Edamame, we were able to create a slick and interactive website that is both easy to follow and appealing to the eye. 
